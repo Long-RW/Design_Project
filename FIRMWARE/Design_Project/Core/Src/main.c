@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "cmsis_os2.h"
 #include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
@@ -36,7 +35,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 /* USER CODE END PD */
-#define ESCALE_GAUGE 100
+
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
@@ -98,29 +97,7 @@ void StartRFID_Task(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-struct __FILE
-{
-	int handle;
-	/* Whatever you require here. If the only file you are using is */
-	/* standard output using printf() for debugging, no file handling */
-	/* is required. */
-};
-
-FILE __stdout;
-
-int fputc(int ch, FILE *f)
-{
-	HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
-	return ch;
-}
-
-int ferror(FILE *f)
-{
-	/* Your implementation of ferror(). */
-	return 0;
-}
-
-HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
   if(hadc->Instance == ADC1)
   {
@@ -423,16 +400,7 @@ void StartESacle_Task(void *argument)
 {
   /* USER CODE BEGIN StartESacle_Task */
   __IO uint32_t tick = osKernelGetTickCount();
-  float Object_Mass;
-  /* Infinite loop */
-  for(;;)
-  {
-    osSemaphoreAcquire(BinarySemHandle, osWaitForever);
-    Object_Mass = ((float)u16_ADCVal/4095)*ESCALE_GAUGE;
-    
-    osSemaphoreRelease(BinarySemHandle);
     osDelay(tick);
-  }
   /* USER CODE END StartESacle_Task */
 }
 
