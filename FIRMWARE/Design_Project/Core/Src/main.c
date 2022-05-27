@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "cmsis_os2.h"
 #include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
@@ -78,7 +79,6 @@ const osThreadAttr_t RFID_Task_attributes = {
 };
 /* USER CODE BEGIN PV */
 uint16_t u16_ADCVal;
-float 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
