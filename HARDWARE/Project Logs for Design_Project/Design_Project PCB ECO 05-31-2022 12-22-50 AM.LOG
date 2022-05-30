@@ -1,0 +1,18 @@
+Change Component Footprint: Designator=P1 Old Footprint=Medium - Header 2 New Footprint=DC-IN
+Change Component Comment : Designator=P1 Old Comment=Header 2 - M New Comment=Jac DC
+Change Component Designator: OldDesignator=P1 NewDesignator=JDC1
+Change Component Designator: OldDesignator=P2 NewDesignator=P1
+Change Component Designator: OldDesignator=P3 NewDesignator=P2
+Change component parameters: Designator = "JDC1"; Footprint = "DC-IN"; UniqueID = "\YJBLDRGN\FBVKIRFK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "Jac DC"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC2_2 Pin=JDC1-3
+Change Net Name : Old Net Name=NetP1_1 New Net Name=NetJDC1_1
+Change Net Name : Old Net Name=NetP2_1 New Net Name=NetP1_1
+Change Net Name : Old Net Name=NetP2_4 New Net Name=NetP1_4
+Added Member To Class: ClassName=05_ElectronicScales Member=Component U3 INA125UA
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales
