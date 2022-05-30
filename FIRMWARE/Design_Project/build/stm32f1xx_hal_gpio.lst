@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
   29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   [..]
   30:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   All GPIO pins have weak internal pull-up and pull-down resistors, which can be
   31:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   activated or not.
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 2
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 2
 
 
   32:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
   86:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****        general purpose PD0 and PD1, respectively, when the HSE oscillator is off.
   87:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****        The HSE has priority over the GPIO function.
   88:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** 
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 3
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 3
 
 
   89:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   @endverbatim
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  143:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** /**
  144:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   * @}
  145:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   */
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 4
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 4
 
 
  146:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** /* Private macro -------------------------------------------------------------*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  182:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   uint32_t iocurrent;
   46              		.loc 1 182 3 view .LVU4
  183:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   uint32_t temp;
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 5
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 5
 
 
   47              		.loc 1 183 3 view .LVU5
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
   74 0020 13E0     		b	.L9
   75              	.L37:
   76 0022 A5F58015 		sub	r5, r5, #1048576
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 6
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 6
 
 
   77 0026 AB42     		cmp	r3, r5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  250:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****             config = GPIO_CR_MODE_INPUT + GPIO_CR_CNF_INPUT_FLOATING;
  251:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           }
  252:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           else if (GPIO_Init->Pull == GPIO_PULLUP)
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 7
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 7
 
 
   90              		.loc 1 252 16 is_stmt 1 view .LVU21
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  114              		.loc 1 280 67 discriminator 1 view .LVU30
  115 0050 0646     		mov	r6, r0
  116              	.L16:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 8
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 8
 
 
  117              	.LVL6:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  159              		.loc 1 292 38 is_stmt 0 view .LVU46
  160 008a 4FEA9C02 		lsr	r2, ip, #2
  161              		.loc 1 292 14 view .LVU47
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 9
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 9
 
 
  162 008e 951C     		adds	r5, r2, #2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  221:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           break;
  207              		.loc 1 221 18 view .LVU61
  208 00d0 0434     		adds	r4, r4, #4
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 10
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 10
 
 
  209              	.LVL14:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  247              	.LVL21:
  270:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           break;
  248              		.loc 1 270 18 view .LVU78
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 11
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 11
 
 
  249 00e8 AFE7     		b	.L9
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  293 0112 61D0     		beq	.L20
  300:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****         {
  301:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           SET_BIT(EXTI->IMR, iocurrent);
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 12
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 12
 
 
  294              		.loc 1 301 11 is_stmt 1 view .LVU91
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  323:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****         else
  324:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****         {
  325:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****           CLEAR_BIT(EXTI->RTSR, iocurrent);
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 13
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 13
 
 
  326:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  202:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****     {
  359              		.loc 1 202 5 is_stmt 1 view .LVU114
  202:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****     {
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 14
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 14
 
 
  360              		.loc 1 202 8 is_stmt 0 view .LVU115
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  407 01d6 93E7     		b	.L19
  408              	.LVL38:
  409              	.L20:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 15
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 15
 
 
  305:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****         }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  456 0214 00100240 		.word	1073876992
  457 0218 00000140 		.word	1073807360
  458 021c 00080140 		.word	1073809408
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 16
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 16
 
 
  459 0220 00040140 		.word	1073808384
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  492              		.cfi_def_cfa_offset 20
  493              		.cfi_offset 4, -20
  494              		.cfi_offset 5, -16
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 17
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 17
 
 
  495              		.cfi_offset 6, -12
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  520              		.loc 1 393 68 is_stmt 0 discriminator 4 view .LVU149
  521 0018 FF2B     		cmp	r3, #255
  522 001a 5CD8     		bhi	.L51
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 18
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 18
 
 
  523              		.loc 1 393 68 discriminator 1 view .LVU150
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  562              	.L60:
  374:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****       tmp &= 0x0FuL << (4u * (position & 0x03u));
  563              		.loc 1 374 7 is_stmt 1 view .LVU162
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 19
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 19
 
 
  374:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****       tmp &= 0x0FuL << (4u * (position & 0x03u));
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  605              	.L56:
  606 0098 0225     		movs	r5, #2
  607 009a B6E7     		b	.L47
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 20
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 20
 
 
  608              	.L64:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  651              	.LVL59:
  652              	.L68:
  653              	.LCFI4:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 21
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 21
 
 
  654              		.cfi_def_cfa_offset 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  698              		.loc 1 352 1 view .LVU195
  699 00f4 7047     		bx	lr
  700              	.L70:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 22
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 22
 
 
  701 00f6 00BF     		.align	2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  725              		.loc 1 436 3 view .LVU198
  437:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** 
  438:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)GPIO_PIN_RESET)
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 23
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 23
 
 
  726              		.loc 1 438 3 view .LVU199
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  463:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   * @retval None
  464:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   */
  465:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 24
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 24
 
 
  466:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  798              		@ link register save eliminated.
  482:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****     GPIOx->ODR = portValue;
  799              		.loc 1 482 5 view .LVU219
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 25
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 25
 
 
  800              		.loc 1 482 16 is_stmt 0 view .LVU220
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  837 000e 0161     		str	r1, [r0, #16]
  502:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c **** }
  838              		.loc 1 502 1 view .LVU232
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 26
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 26
 
 
  839 0010 7047     		bx	lr
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  872              		.loc 1 525 3 view .LVU240
  873              		.loc 1 525 15 is_stmt 0 view .LVU241
  874 000e 019B     		ldr	r3, [sp, #4]
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 27
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 27
 
 
  875 0010 8361     		str	r3, [r0, #24]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  911              	.LVL77:
  540:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c ****   }
  912              		.loc 1 540 12 view .LVU255
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 28
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 28
 
 
  913 002c FBE7     		b	.L80
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  941              		.syntax unified
  942              		.thumb
  943              		.thumb_func
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 29
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 29
 
 
  945              	HAL_GPIO_EXTI_IRQHandler:
@@ -1737,33 +1737,33 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 1
  990              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  991              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
  992              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s 			page 30
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f1xx_hal_gpio.c
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:18     .text.HAL_GPIO_Init:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:24     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:376    .text.HAL_GPIO_Init:00000184 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:396    .text.HAL_GPIO_Init:000001d0 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:454    .text.HAL_GPIO_Init:0000020c $d
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:464    .text.HAL_GPIO_DeInit:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:470    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:703    .text.HAL_GPIO_DeInit:000000f8 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:710    .text.HAL_GPIO_ReadPin:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:716    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:749    .text.HAL_GPIO_WritePin:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:755    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:785    .text.HAL_GPIO_WritePort:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:791    .text.HAL_GPIO_WritePort:00000000 HAL_GPIO_WritePort
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:808    .text.HAL_GPIO_TogglePin:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:814    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:844    .text.HAL_GPIO_LockPin:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:850    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:918    .text.HAL_GPIO_EXTI_Callback:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:924    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:939    .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:945    .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
-C:\Users\DELLPR~1\AppData\Local\Temp\ccRtNTqd.s:982    .text.HAL_GPIO_EXTI_IRQHandler:00000018 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:18     .text.HAL_GPIO_Init:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:24     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:376    .text.HAL_GPIO_Init:00000184 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:396    .text.HAL_GPIO_Init:000001d0 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:454    .text.HAL_GPIO_Init:0000020c $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:464    .text.HAL_GPIO_DeInit:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:470    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:703    .text.HAL_GPIO_DeInit:000000f8 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:710    .text.HAL_GPIO_ReadPin:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:716    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:749    .text.HAL_GPIO_WritePin:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:755    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:785    .text.HAL_GPIO_WritePort:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:791    .text.HAL_GPIO_WritePort:00000000 HAL_GPIO_WritePort
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:808    .text.HAL_GPIO_TogglePin:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:814    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:844    .text.HAL_GPIO_LockPin:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:850    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:918    .text.HAL_GPIO_EXTI_Callback:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:924    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:939    .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:945    .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
+C:\Users\DELLPR~1\AppData\Local\Temp\ccmpozWZ.s:982    .text.HAL_GPIO_EXTI_IRQHandler:00000018 $d
 
 NO UNDEFINED SYMBOLS

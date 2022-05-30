@@ -1,0 +1,140 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Long Duong Hoang, HUST, LIC=D0D7S-L5AXK-HLLCL-070QR-IEFBG-8VH7D
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\Design_Project\FIRMWARE\Design_Project\MDK-ARM\Design_Project.uvprojx
+Project File Date:  05/26/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Design_Project'
+assembling startup_stm32f103xb.s...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling stm32f1xx_hal_msp.c...
+compiling stm32f1xx_hal_adc.c...
+compiling main.c...
+../Core/Src/main.c(51): error:  #20: identifier "osThreadId_t" is undefined
+  osThreadId_t defaultTaskHandle;
+../Core/Src/main.c(52): error:  #20: identifier "osThreadAttr_t" is undefined
+  const osThreadAttr_t defaultTask_attributes = {
+KB: Unexpected type: 0
+error type>(55): error:  #20: identifier "osPriority_t" is undefined
+    .priority = (osPriority_t) osPriorityNormal,
+../Core/Src/main.c(55): error:  #253: expected a ","
+    .priority = (osPriority_t) osPriorityNormal,
+../Core/Src/main.c(58): error:  #20: identifier "osThreadId_t" is undefined
+  osThreadId_t EScale_TaskHandle;
+../Core/Src/main.c(59): error:  #20: identifier "osThreadAttr_t" is undefined
+  const osThreadAttr_t EScale_Task_attributes = {
+KB: Unexpected type: 0
+error type>(62): error:  #253: expected a ","
+    .priority = (osPriority_t) osPriorityLow,
+../Core/Src/main.c(65): error:  #20: identifier "osThreadId_t" is undefined
+  osThreadId_t UART_TaskHandle;
+../Core/Src/main.c(66): error:  #20: identifier "osThreadAttr_t" is undefined
+  const osThreadAttr_t UART_Task_attributes = {
+KB: Unexpected type: 0
+error type>(69): error:  #253: expected a ","
+    .priority = (osPriority_t) osPriorityLow,
+../Core/Src/main.c(72): error:  #20: identifier "osThreadId_t" is undefined
+  osThreadId_t RFID_TaskHandle;
+../Core/Src/main.c(73): error:  #20: identifier "osThreadAttr_t" is undefined
+  const osThreadAttr_t RFID_Task_attributes = {
+KB: Unexpected type: 0
+error type>(76): error:  #253: expected a ","
+    .priority = (osPriority_t) osPriorityLow,
+../Core/Src/main.c(121): error:  #260-D: explicit type is missing ("int" assumed)
+  HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+../Core/Src/main.c(121): error:  #147: declaration is incompatible with "void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *)"  (declared at line 938 of "../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h")
+  HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+../Core/Src/main.c(166): warning:  #223-D: function "osKernelInitialize" declared implicitly
+    osKernelInitialize();
+../Core/Src/main.c(186): warning:  #223-D: function "osThreadNew" declared implicitly
+    defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+../Core/Src/main.c(206): warning:  #223-D: function "osKernelStart" declared implicitly
+    osKernelStart();
+../Core/Src/main.c(408): warning:  #223-D: function "osDelay" declared implicitly
+      osDelay(1);
+../Core/Src/main.c(423): warning:  #223-D: function "osKernelGetTickCount" declared implicitly
+    __IO uint32_t tick = osKernelGetTickCount();
+../Core/Src/main.c(428): warning:  #223-D: function "osSemaphoreAcquire" declared implicitly
+      osSemaphoreAcquire(BinarySemHandle, osWaitForever);
+../Core/Src/main.c(428): error:  #20: identifier "BinarySemHandle" is undefined
+      osSemaphoreAcquire(BinarySemHandle, osWaitForever);
+../Core/Src/main.c(428): error:  #20: identifier "osWaitForever" is undefined
+      osSemaphoreAcquire(BinarySemHandle, osWaitForever);
+../Core/Src/main.c(431): warning:  #223-D: function "osSemaphoreRelease" declared implicitly
+      osSemaphoreRelease(BinarySemHandle);
+../Core/Src/main.c(432): warning:  #223-D: function "osDelay" declared implicitly
+      osDelay(tick);
+../Core/Src/main.c(424): warning:  #550-D: variable "Object_Mass"  was set but never used
+    float Object_Mass;
+../Core/Src/main.c(450): warning:  #223-D: function "osDelay" declared implicitly
+      osDelay(1);
+../Core/Src/main.c(468): warning:  #223-D: function "osDelay" declared implicitly
+      osDelay(1);
+../Core/Src/main.c: 11 warnings, 17 errors
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_hal_adc_ex.c...
+compiling stm32f1xx_it.c...
+compiling stm32f1xx_hal_rcc.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_flash.c...
+compiling stm32f1xx_hal_spi.c...
+compiling system_stm32f1xx.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling stm32f1xx_hal_uart.c...
+"Design_Project\Design_Project.axf" - 17 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Design_Project
+  C:\Users\Dell Precision\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\Dell Precision\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+Target not created.
+Build Time Elapsed:  00:00:15
+</pre>
+</body>
+</html>
