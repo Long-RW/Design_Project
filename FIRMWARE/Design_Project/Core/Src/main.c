@@ -401,6 +401,7 @@ void StartESacle_Task(void *argument)
 {
   /* USER CODE BEGIN StartESacle_Task */
   __IO uint32_t tick = osKernelGetTickCount();
+  
     osDelay(tick);
   /* USER CODE END StartESacle_Task */
 }
