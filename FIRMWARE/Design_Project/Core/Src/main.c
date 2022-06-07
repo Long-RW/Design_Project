@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "cmsis_os2.h"
 #include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
@@ -79,6 +78,7 @@ const osThreadAttr_t RFID_Task_attributes = {
 };
 /* USER CODE BEGIN PV */
 uint16_t u16_ADCVal;
+osSemaphoreId_t ESCALE_KEY, UART_KEY, RFID_KEY;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,7 +114,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -401,8 +400,17 @@ void StartESacle_Task(void *argument)
 {
   /* USER CODE BEGIN StartESacle_Task */
   __IO uint32_t tick = osKernelGetTickCount();
-  
-    osDelay(tick);
+  float weight_value = 0;
+  for(;;)
+  {
+    osSemaphoreAcquire(ESCALE_KEY,osWaitForever);
+    HAL_ADC_Start_IT(&hadc1);
+    weight_value = (((float)u16_ADCVal)/4095)*100;
+    HAL_ADC_Stop_IT(&hadc1);
+
+    osSemaphoreRelease(ESCALE_KEY);
+    osDelayUntil(tick);
+  }
   /* USER CODE END StartESacle_Task */
 }
 

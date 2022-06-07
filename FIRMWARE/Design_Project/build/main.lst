@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -47,68 +47,68 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   20:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/main.c **** #include "main.h"
   22:Core/Src/main.c **** #include "cmsis_os.h"
-  23:Core/Src/main.c **** #include "cmsis_os2.h"
-  24:Core/Src/main.c **** #include <stdio.h>
-  25:Core/Src/main.c **** 
-  26:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
-  27:Core/Src/main.c **** /* USER CODE BEGIN Includes */
-  28:Core/Src/main.c **** 
-  29:Core/Src/main.c **** /* USER CODE END Includes */
-  30:Core/Src/main.c **** 
-  31:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
-  32:Core/Src/main.c **** /* USER CODE BEGIN PTD */
-  33:Core/Src/main.c **** 
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 2
+  23:Core/Src/main.c **** #include <stdio.h>
+  24:Core/Src/main.c **** 
+  25:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
+  26:Core/Src/main.c **** /* USER CODE BEGIN Includes */
+  27:Core/Src/main.c **** 
+  28:Core/Src/main.c **** /* USER CODE END Includes */
+  29:Core/Src/main.c **** 
+  30:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
+  31:Core/Src/main.c **** /* USER CODE BEGIN PTD */
+  32:Core/Src/main.c **** 
+  33:Core/Src/main.c **** /* USER CODE END PTD */
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 2
 
 
-  34:Core/Src/main.c **** /* USER CODE END PTD */
-  35:Core/Src/main.c **** 
-  36:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
-  37:Core/Src/main.c **** /* USER CODE BEGIN PD */
-  38:Core/Src/main.c **** /* USER CODE END PD */
-  39:Core/Src/main.c **** 
-  40:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
-  41:Core/Src/main.c **** /* USER CODE BEGIN PM */
-  42:Core/Src/main.c **** 
-  43:Core/Src/main.c **** /* USER CODE END PM */
-  44:Core/Src/main.c **** 
-  45:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
-  46:Core/Src/main.c **** ADC_HandleTypeDef hadc1;
-  47:Core/Src/main.c **** 
-  48:Core/Src/main.c **** SPI_HandleTypeDef hspi1;
-  49:Core/Src/main.c **** 
-  50:Core/Src/main.c **** UART_HandleTypeDef huart1;
-  51:Core/Src/main.c **** 
-  52:Core/Src/main.c **** /* Definitions for defaultTask */
-  53:Core/Src/main.c **** osThreadId_t defaultTaskHandle;
-  54:Core/Src/main.c **** const osThreadAttr_t defaultTask_attributes = {
-  55:Core/Src/main.c ****   .name = "defaultTask",
-  56:Core/Src/main.c ****   .stack_size = 128 * 4,
-  57:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityNormal,
-  58:Core/Src/main.c **** };
-  59:Core/Src/main.c **** /* Definitions for EScale_Task */
-  60:Core/Src/main.c **** osThreadId_t EScale_TaskHandle;
-  61:Core/Src/main.c **** const osThreadAttr_t EScale_Task_attributes = {
-  62:Core/Src/main.c ****   .name = "EScale_Task",
-  63:Core/Src/main.c ****   .stack_size = 128 * 4,
-  64:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
-  65:Core/Src/main.c **** };
-  66:Core/Src/main.c **** /* Definitions for UART_Task */
-  67:Core/Src/main.c **** osThreadId_t UART_TaskHandle;
-  68:Core/Src/main.c **** const osThreadAttr_t UART_Task_attributes = {
-  69:Core/Src/main.c ****   .name = "UART_Task",
-  70:Core/Src/main.c ****   .stack_size = 128 * 4,
-  71:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
-  72:Core/Src/main.c **** };
-  73:Core/Src/main.c **** /* Definitions for RFID_Task */
-  74:Core/Src/main.c **** osThreadId_t RFID_TaskHandle;
-  75:Core/Src/main.c **** const osThreadAttr_t RFID_Task_attributes = {
-  76:Core/Src/main.c ****   .name = "RFID_Task",
-  77:Core/Src/main.c ****   .stack_size = 128 * 4,
-  78:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
-  79:Core/Src/main.c **** };
-  80:Core/Src/main.c **** /* USER CODE BEGIN PV */
-  81:Core/Src/main.c **** uint16_t u16_ADCVal;
+  34:Core/Src/main.c **** 
+  35:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
+  36:Core/Src/main.c **** /* USER CODE BEGIN PD */
+  37:Core/Src/main.c **** /* USER CODE END PD */
+  38:Core/Src/main.c **** 
+  39:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
+  40:Core/Src/main.c **** /* USER CODE BEGIN PM */
+  41:Core/Src/main.c **** 
+  42:Core/Src/main.c **** /* USER CODE END PM */
+  43:Core/Src/main.c **** 
+  44:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
+  45:Core/Src/main.c **** ADC_HandleTypeDef hadc1;
+  46:Core/Src/main.c **** 
+  47:Core/Src/main.c **** SPI_HandleTypeDef hspi1;
+  48:Core/Src/main.c **** 
+  49:Core/Src/main.c **** UART_HandleTypeDef huart1;
+  50:Core/Src/main.c **** 
+  51:Core/Src/main.c **** /* Definitions for defaultTask */
+  52:Core/Src/main.c **** osThreadId_t defaultTaskHandle;
+  53:Core/Src/main.c **** const osThreadAttr_t defaultTask_attributes = {
+  54:Core/Src/main.c ****   .name = "defaultTask",
+  55:Core/Src/main.c ****   .stack_size = 128 * 4,
+  56:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityNormal,
+  57:Core/Src/main.c **** };
+  58:Core/Src/main.c **** /* Definitions for EScale_Task */
+  59:Core/Src/main.c **** osThreadId_t EScale_TaskHandle;
+  60:Core/Src/main.c **** const osThreadAttr_t EScale_Task_attributes = {
+  61:Core/Src/main.c ****   .name = "EScale_Task",
+  62:Core/Src/main.c ****   .stack_size = 128 * 4,
+  63:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
+  64:Core/Src/main.c **** };
+  65:Core/Src/main.c **** /* Definitions for UART_Task */
+  66:Core/Src/main.c **** osThreadId_t UART_TaskHandle;
+  67:Core/Src/main.c **** const osThreadAttr_t UART_Task_attributes = {
+  68:Core/Src/main.c ****   .name = "UART_Task",
+  69:Core/Src/main.c ****   .stack_size = 128 * 4,
+  70:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
+  71:Core/Src/main.c **** };
+  72:Core/Src/main.c **** /* Definitions for RFID_Task */
+  73:Core/Src/main.c **** osThreadId_t RFID_TaskHandle;
+  74:Core/Src/main.c **** const osThreadAttr_t RFID_Task_attributes = {
+  75:Core/Src/main.c ****   .name = "RFID_Task",
+  76:Core/Src/main.c ****   .stack_size = 128 * 4,
+  77:Core/Src/main.c ****   .priority = (osPriority_t) osPriorityLow,
+  78:Core/Src/main.c **** };
+  79:Core/Src/main.c **** /* USER CODE BEGIN PV */
+  80:Core/Src/main.c **** uint16_t u16_ADCVal;
+  81:Core/Src/main.c **** osSemaphoreId_t ESCALE_KEY, UART_KEY, RFID_KEY;
   82:Core/Src/main.c **** /* USER CODE END PV */
   83:Core/Src/main.c **** 
   84:Core/Src/main.c **** /* Private function prototypes -----------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   88:Core/Src/main.c **** static void MX_SPI1_Init(void);
   89:Core/Src/main.c **** static void MX_USART1_UART_Init(void);
   90:Core/Src/main.c **** void StartDefaultTask(void *argument);
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 3
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 3
 
 
   91:Core/Src/main.c **** void StartESacle_Task(void *argument);
@@ -147,267 +147,266 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  114:Core/Src/main.c **** int main(void)
  115:Core/Src/main.c **** {
  116:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
- 117:Core/Src/main.c **** 
- 118:Core/Src/main.c ****   /* USER CODE END 1 */
- 119:Core/Src/main.c **** 
- 120:Core/Src/main.c ****   /* MCU Configuration--------------------------------------------------------*/
- 121:Core/Src/main.c **** 
- 122:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
- 123:Core/Src/main.c ****   HAL_Init();
- 124:Core/Src/main.c **** 
- 125:Core/Src/main.c ****   /* USER CODE BEGIN Init */
- 126:Core/Src/main.c **** 
- 127:Core/Src/main.c ****   /* USER CODE END Init */
- 128:Core/Src/main.c **** 
- 129:Core/Src/main.c ****   /* Configure the system clock */
- 130:Core/Src/main.c ****   SystemClock_Config();
- 131:Core/Src/main.c **** 
- 132:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
- 133:Core/Src/main.c **** 
- 134:Core/Src/main.c ****   /* USER CODE END SysInit */
- 135:Core/Src/main.c **** 
- 136:Core/Src/main.c ****   /* Initialize all configured peripherals */
- 137:Core/Src/main.c ****   MX_GPIO_Init();
- 138:Core/Src/main.c ****   MX_ADC1_Init();
- 139:Core/Src/main.c ****   MX_SPI1_Init();
- 140:Core/Src/main.c ****   MX_USART1_UART_Init();
- 141:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 142:Core/Src/main.c **** 
- 143:Core/Src/main.c ****   /* USER CODE END 2 */
- 144:Core/Src/main.c **** 
- 145:Core/Src/main.c ****   /* Init scheduler */
- 146:Core/Src/main.c ****   osKernelInitialize();
- 147:Core/Src/main.c **** 
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 4
+ 117:Core/Src/main.c ****   /* USER CODE END 1 */
+ 118:Core/Src/main.c **** 
+ 119:Core/Src/main.c ****   /* MCU Configuration--------------------------------------------------------*/
+ 120:Core/Src/main.c **** 
+ 121:Core/Src/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+ 122:Core/Src/main.c ****   HAL_Init();
+ 123:Core/Src/main.c **** 
+ 124:Core/Src/main.c ****   /* USER CODE BEGIN Init */
+ 125:Core/Src/main.c **** 
+ 126:Core/Src/main.c ****   /* USER CODE END Init */
+ 127:Core/Src/main.c **** 
+ 128:Core/Src/main.c ****   /* Configure the system clock */
+ 129:Core/Src/main.c ****   SystemClock_Config();
+ 130:Core/Src/main.c **** 
+ 131:Core/Src/main.c ****   /* USER CODE BEGIN SysInit */
+ 132:Core/Src/main.c **** 
+ 133:Core/Src/main.c ****   /* USER CODE END SysInit */
+ 134:Core/Src/main.c **** 
+ 135:Core/Src/main.c ****   /* Initialize all configured peripherals */
+ 136:Core/Src/main.c ****   MX_GPIO_Init();
+ 137:Core/Src/main.c ****   MX_ADC1_Init();
+ 138:Core/Src/main.c ****   MX_SPI1_Init();
+ 139:Core/Src/main.c ****   MX_USART1_UART_Init();
+ 140:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 141:Core/Src/main.c **** 
+ 142:Core/Src/main.c ****   /* USER CODE END 2 */
+ 143:Core/Src/main.c **** 
+ 144:Core/Src/main.c ****   /* Init scheduler */
+ 145:Core/Src/main.c ****   osKernelInitialize();
+ 146:Core/Src/main.c **** 
+ 147:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_MUTEX */
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 4
 
 
- 148:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_MUTEX */
- 149:Core/Src/main.c ****   /* add mutexes, ... */
- 150:Core/Src/main.c ****   /* USER CODE END RTOS_MUTEX */
- 151:Core/Src/main.c **** 
- 152:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_SEMAPHORES */
- 153:Core/Src/main.c ****   /* add semaphores, ... */
- 154:Core/Src/main.c ****   /* USER CODE END RTOS_SEMAPHORES */
- 155:Core/Src/main.c **** 
- 156:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_TIMERS */
- 157:Core/Src/main.c ****   /* start timers, add new ones, ... */
- 158:Core/Src/main.c ****   /* USER CODE END RTOS_TIMERS */
- 159:Core/Src/main.c **** 
- 160:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_QUEUES */
- 161:Core/Src/main.c ****   /* add queues, ... */
- 162:Core/Src/main.c ****   /* USER CODE END RTOS_QUEUES */
- 163:Core/Src/main.c **** 
- 164:Core/Src/main.c ****   /* Create the thread(s) */
- 165:Core/Src/main.c ****   /* creation of defaultTask */
- 166:Core/Src/main.c ****   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
- 167:Core/Src/main.c **** 
- 168:Core/Src/main.c ****   /* creation of EScale_Task */
- 169:Core/Src/main.c ****   EScale_TaskHandle = osThreadNew(StartESacle_Task, NULL, &EScale_Task_attributes);
- 170:Core/Src/main.c **** 
- 171:Core/Src/main.c ****   /* creation of UART_Task */
- 172:Core/Src/main.c ****   UART_TaskHandle = osThreadNew(StartUART_Task, NULL, &UART_Task_attributes);
- 173:Core/Src/main.c **** 
- 174:Core/Src/main.c ****   /* creation of RFID_Task */
- 175:Core/Src/main.c ****   RFID_TaskHandle = osThreadNew(StartRFID_Task, NULL, &RFID_Task_attributes);
- 176:Core/Src/main.c **** 
- 177:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_THREADS */
- 178:Core/Src/main.c ****   /* add threads, ... */
- 179:Core/Src/main.c ****   /* USER CODE END RTOS_THREADS */
- 180:Core/Src/main.c **** 
- 181:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_EVENTS */
- 182:Core/Src/main.c ****   /* add events, ... */
- 183:Core/Src/main.c ****   /* USER CODE END RTOS_EVENTS */
- 184:Core/Src/main.c **** 
- 185:Core/Src/main.c ****   /* Start scheduler */
- 186:Core/Src/main.c ****   osKernelStart();
- 187:Core/Src/main.c **** 
- 188:Core/Src/main.c ****   /* We should never get here as control is now taken by the scheduler */
- 189:Core/Src/main.c ****   /* Infinite loop */
- 190:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
- 191:Core/Src/main.c ****   while (1)
- 192:Core/Src/main.c ****   {
- 193:Core/Src/main.c ****     /* USER CODE END WHILE */
- 194:Core/Src/main.c **** 
- 195:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
- 196:Core/Src/main.c ****   }
- 197:Core/Src/main.c ****   /* USER CODE END 3 */
- 198:Core/Src/main.c **** }
- 199:Core/Src/main.c **** 
- 200:Core/Src/main.c **** /**
- 201:Core/Src/main.c ****   * @brief System Clock Configuration
- 202:Core/Src/main.c ****   * @retval None
- 203:Core/Src/main.c ****   */
- 204:Core/Src/main.c **** void SystemClock_Config(void)
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 5
+ 148:Core/Src/main.c ****   /* add mutexes, ... */
+ 149:Core/Src/main.c ****   /* USER CODE END RTOS_MUTEX */
+ 150:Core/Src/main.c **** 
+ 151:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_SEMAPHORES */
+ 152:Core/Src/main.c ****   /* add semaphores, ... */
+ 153:Core/Src/main.c ****   /* USER CODE END RTOS_SEMAPHORES */
+ 154:Core/Src/main.c **** 
+ 155:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_TIMERS */
+ 156:Core/Src/main.c ****   /* start timers, add new ones, ... */
+ 157:Core/Src/main.c ****   /* USER CODE END RTOS_TIMERS */
+ 158:Core/Src/main.c **** 
+ 159:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_QUEUES */
+ 160:Core/Src/main.c ****   /* add queues, ... */
+ 161:Core/Src/main.c ****   /* USER CODE END RTOS_QUEUES */
+ 162:Core/Src/main.c **** 
+ 163:Core/Src/main.c ****   /* Create the thread(s) */
+ 164:Core/Src/main.c ****   /* creation of defaultTask */
+ 165:Core/Src/main.c ****   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+ 166:Core/Src/main.c **** 
+ 167:Core/Src/main.c ****   /* creation of EScale_Task */
+ 168:Core/Src/main.c ****   EScale_TaskHandle = osThreadNew(StartESacle_Task, NULL, &EScale_Task_attributes);
+ 169:Core/Src/main.c **** 
+ 170:Core/Src/main.c ****   /* creation of UART_Task */
+ 171:Core/Src/main.c ****   UART_TaskHandle = osThreadNew(StartUART_Task, NULL, &UART_Task_attributes);
+ 172:Core/Src/main.c **** 
+ 173:Core/Src/main.c ****   /* creation of RFID_Task */
+ 174:Core/Src/main.c ****   RFID_TaskHandle = osThreadNew(StartRFID_Task, NULL, &RFID_Task_attributes);
+ 175:Core/Src/main.c **** 
+ 176:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_THREADS */
+ 177:Core/Src/main.c ****   /* add threads, ... */
+ 178:Core/Src/main.c ****   /* USER CODE END RTOS_THREADS */
+ 179:Core/Src/main.c **** 
+ 180:Core/Src/main.c ****   /* USER CODE BEGIN RTOS_EVENTS */
+ 181:Core/Src/main.c ****   /* add events, ... */
+ 182:Core/Src/main.c ****   /* USER CODE END RTOS_EVENTS */
+ 183:Core/Src/main.c **** 
+ 184:Core/Src/main.c ****   /* Start scheduler */
+ 185:Core/Src/main.c ****   osKernelStart();
+ 186:Core/Src/main.c **** 
+ 187:Core/Src/main.c ****   /* We should never get here as control is now taken by the scheduler */
+ 188:Core/Src/main.c ****   /* Infinite loop */
+ 189:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
+ 190:Core/Src/main.c ****   while (1)
+ 191:Core/Src/main.c ****   {
+ 192:Core/Src/main.c ****     /* USER CODE END WHILE */
+ 193:Core/Src/main.c **** 
+ 194:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
+ 195:Core/Src/main.c ****   }
+ 196:Core/Src/main.c ****   /* USER CODE END 3 */
+ 197:Core/Src/main.c **** }
+ 198:Core/Src/main.c **** 
+ 199:Core/Src/main.c **** /**
+ 200:Core/Src/main.c ****   * @brief System Clock Configuration
+ 201:Core/Src/main.c ****   * @retval None
+ 202:Core/Src/main.c ****   */
+ 203:Core/Src/main.c **** void SystemClock_Config(void)
+ 204:Core/Src/main.c **** {
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 5
 
 
- 205:Core/Src/main.c **** {
- 206:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 207:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 208:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
- 209:Core/Src/main.c **** 
- 210:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 211:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 212:Core/Src/main.c ****   */
- 213:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
- 214:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 215:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 216:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 217:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 218:Core/Src/main.c ****   {
- 219:Core/Src/main.c ****     Error_Handler();
- 220:Core/Src/main.c ****   }
- 221:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 222:Core/Src/main.c ****   */
- 223:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 224:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 225:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
- 226:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 227:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 228:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 229:Core/Src/main.c **** 
- 230:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
- 231:Core/Src/main.c ****   {
- 232:Core/Src/main.c ****     Error_Handler();
- 233:Core/Src/main.c ****   }
- 234:Core/Src/main.c ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
- 235:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
- 236:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
- 237:Core/Src/main.c ****   {
- 238:Core/Src/main.c ****     Error_Handler();
- 239:Core/Src/main.c ****   }
- 240:Core/Src/main.c **** }
- 241:Core/Src/main.c **** 
- 242:Core/Src/main.c **** /**
- 243:Core/Src/main.c ****   * @brief ADC1 Initialization Function
- 244:Core/Src/main.c ****   * @param None
- 245:Core/Src/main.c ****   * @retval None
- 246:Core/Src/main.c ****   */
- 247:Core/Src/main.c **** static void MX_ADC1_Init(void)
- 248:Core/Src/main.c **** {
- 249:Core/Src/main.c **** 
- 250:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 0 */
- 251:Core/Src/main.c **** 
- 252:Core/Src/main.c ****   /* USER CODE END ADC1_Init 0 */
- 253:Core/Src/main.c **** 
- 254:Core/Src/main.c ****   ADC_ChannelConfTypeDef sConfig = {0};
- 255:Core/Src/main.c **** 
- 256:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 1 */
- 257:Core/Src/main.c **** 
- 258:Core/Src/main.c ****   /* USER CODE END ADC1_Init 1 */
- 259:Core/Src/main.c ****   /** Common config
- 260:Core/Src/main.c ****   */
- 261:Core/Src/main.c ****   hadc1.Instance = ADC1;
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 6
+ 205:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 206:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 207:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 208:Core/Src/main.c **** 
+ 209:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 210:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 211:Core/Src/main.c ****   */
+ 212:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 213:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 214:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 215:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 216:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 217:Core/Src/main.c ****   {
+ 218:Core/Src/main.c ****     Error_Handler();
+ 219:Core/Src/main.c ****   }
+ 220:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 221:Core/Src/main.c ****   */
+ 222:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 223:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 224:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+ 225:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 226:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 227:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 228:Core/Src/main.c **** 
+ 229:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+ 230:Core/Src/main.c ****   {
+ 231:Core/Src/main.c ****     Error_Handler();
+ 232:Core/Src/main.c ****   }
+ 233:Core/Src/main.c ****   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+ 234:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+ 235:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 236:Core/Src/main.c ****   {
+ 237:Core/Src/main.c ****     Error_Handler();
+ 238:Core/Src/main.c ****   }
+ 239:Core/Src/main.c **** }
+ 240:Core/Src/main.c **** 
+ 241:Core/Src/main.c **** /**
+ 242:Core/Src/main.c ****   * @brief ADC1 Initialization Function
+ 243:Core/Src/main.c ****   * @param None
+ 244:Core/Src/main.c ****   * @retval None
+ 245:Core/Src/main.c ****   */
+ 246:Core/Src/main.c **** static void MX_ADC1_Init(void)
+ 247:Core/Src/main.c **** {
+ 248:Core/Src/main.c **** 
+ 249:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 0 */
+ 250:Core/Src/main.c **** 
+ 251:Core/Src/main.c ****   /* USER CODE END ADC1_Init 0 */
+ 252:Core/Src/main.c **** 
+ 253:Core/Src/main.c ****   ADC_ChannelConfTypeDef sConfig = {0};
+ 254:Core/Src/main.c **** 
+ 255:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 1 */
+ 256:Core/Src/main.c **** 
+ 257:Core/Src/main.c ****   /* USER CODE END ADC1_Init 1 */
+ 258:Core/Src/main.c ****   /** Common config
+ 259:Core/Src/main.c ****   */
+ 260:Core/Src/main.c ****   hadc1.Instance = ADC1;
+ 261:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 6
 
 
- 262:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
- 263:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
- 264:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
- 265:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
- 266:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
- 267:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
- 268:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
- 269:Core/Src/main.c ****   {
- 270:Core/Src/main.c ****     Error_Handler();
- 271:Core/Src/main.c ****   }
- 272:Core/Src/main.c ****   /** Configure Regular Channel
- 273:Core/Src/main.c ****   */
- 274:Core/Src/main.c ****   sConfig.Channel = ADC_CHANNEL_0;
- 275:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
- 276:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
- 277:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
- 278:Core/Src/main.c ****   {
- 279:Core/Src/main.c ****     Error_Handler();
- 280:Core/Src/main.c ****   }
- 281:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 2 */
- 282:Core/Src/main.c **** 
- 283:Core/Src/main.c ****   /* USER CODE END ADC1_Init 2 */
- 284:Core/Src/main.c **** 
- 285:Core/Src/main.c **** }
- 286:Core/Src/main.c **** 
- 287:Core/Src/main.c **** /**
- 288:Core/Src/main.c ****   * @brief SPI1 Initialization Function
- 289:Core/Src/main.c ****   * @param None
- 290:Core/Src/main.c ****   * @retval None
- 291:Core/Src/main.c ****   */
- 292:Core/Src/main.c **** static void MX_SPI1_Init(void)
- 293:Core/Src/main.c **** {
- 294:Core/Src/main.c **** 
- 295:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 0 */
- 296:Core/Src/main.c **** 
- 297:Core/Src/main.c ****   /* USER CODE END SPI1_Init 0 */
- 298:Core/Src/main.c **** 
- 299:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 1 */
- 300:Core/Src/main.c **** 
- 301:Core/Src/main.c ****   /* USER CODE END SPI1_Init 1 */
- 302:Core/Src/main.c ****   /* SPI1 parameter configuration*/
- 303:Core/Src/main.c ****   hspi1.Instance = SPI1;
- 304:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
- 305:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 306:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
- 307:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
- 308:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
- 309:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
- 310:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
- 311:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 312:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
- 313:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 314:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
- 315:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
- 316:Core/Src/main.c ****   {
- 317:Core/Src/main.c ****     Error_Handler();
- 318:Core/Src/main.c ****   }
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 7
+ 262:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+ 263:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+ 264:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 265:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 266:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
+ 267:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
+ 268:Core/Src/main.c ****   {
+ 269:Core/Src/main.c ****     Error_Handler();
+ 270:Core/Src/main.c ****   }
+ 271:Core/Src/main.c ****   /** Configure Regular Channel
+ 272:Core/Src/main.c ****   */
+ 273:Core/Src/main.c ****   sConfig.Channel = ADC_CHANNEL_0;
+ 274:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+ 275:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+ 276:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 277:Core/Src/main.c ****   {
+ 278:Core/Src/main.c ****     Error_Handler();
+ 279:Core/Src/main.c ****   }
+ 280:Core/Src/main.c ****   /* USER CODE BEGIN ADC1_Init 2 */
+ 281:Core/Src/main.c **** 
+ 282:Core/Src/main.c ****   /* USER CODE END ADC1_Init 2 */
+ 283:Core/Src/main.c **** 
+ 284:Core/Src/main.c **** }
+ 285:Core/Src/main.c **** 
+ 286:Core/Src/main.c **** /**
+ 287:Core/Src/main.c ****   * @brief SPI1 Initialization Function
+ 288:Core/Src/main.c ****   * @param None
+ 289:Core/Src/main.c ****   * @retval None
+ 290:Core/Src/main.c ****   */
+ 291:Core/Src/main.c **** static void MX_SPI1_Init(void)
+ 292:Core/Src/main.c **** {
+ 293:Core/Src/main.c **** 
+ 294:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 0 */
+ 295:Core/Src/main.c **** 
+ 296:Core/Src/main.c ****   /* USER CODE END SPI1_Init 0 */
+ 297:Core/Src/main.c **** 
+ 298:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 1 */
+ 299:Core/Src/main.c **** 
+ 300:Core/Src/main.c ****   /* USER CODE END SPI1_Init 1 */
+ 301:Core/Src/main.c ****   /* SPI1 parameter configuration*/
+ 302:Core/Src/main.c ****   hspi1.Instance = SPI1;
+ 303:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 304:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 305:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 306:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 307:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 308:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 309:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+ 310:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 311:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 312:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 313:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
+ 314:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 315:Core/Src/main.c ****   {
+ 316:Core/Src/main.c ****     Error_Handler();
+ 317:Core/Src/main.c ****   }
+ 318:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 2 */
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 7
 
 
- 319:Core/Src/main.c ****   /* USER CODE BEGIN SPI1_Init 2 */
- 320:Core/Src/main.c **** 
- 321:Core/Src/main.c ****   /* USER CODE END SPI1_Init 2 */
- 322:Core/Src/main.c **** 
- 323:Core/Src/main.c **** }
- 324:Core/Src/main.c **** 
- 325:Core/Src/main.c **** /**
- 326:Core/Src/main.c ****   * @brief USART1 Initialization Function
- 327:Core/Src/main.c ****   * @param None
- 328:Core/Src/main.c ****   * @retval None
- 329:Core/Src/main.c ****   */
- 330:Core/Src/main.c **** static void MX_USART1_UART_Init(void)
- 331:Core/Src/main.c **** {
- 332:Core/Src/main.c **** 
- 333:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 0 */
- 334:Core/Src/main.c **** 
- 335:Core/Src/main.c ****   /* USER CODE END USART1_Init 0 */
- 336:Core/Src/main.c **** 
- 337:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 1 */
- 338:Core/Src/main.c **** 
- 339:Core/Src/main.c ****   /* USER CODE END USART1_Init 1 */
- 340:Core/Src/main.c ****   huart1.Instance = USART1;
- 341:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
- 342:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
- 343:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
- 344:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
- 345:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
- 346:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 347:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
- 348:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
- 349:Core/Src/main.c ****   {
- 350:Core/Src/main.c ****     Error_Handler();
- 351:Core/Src/main.c ****   }
- 352:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 2 */
- 353:Core/Src/main.c **** 
- 354:Core/Src/main.c ****   /* USER CODE END USART1_Init 2 */
- 355:Core/Src/main.c **** 
- 356:Core/Src/main.c **** }
- 357:Core/Src/main.c **** 
- 358:Core/Src/main.c **** /**
- 359:Core/Src/main.c ****   * @brief GPIO Initialization Function
- 360:Core/Src/main.c ****   * @param None
- 361:Core/Src/main.c ****   * @retval None
- 362:Core/Src/main.c ****   */
- 363:Core/Src/main.c **** static void MX_GPIO_Init(void)
- 364:Core/Src/main.c **** {
-  26              		.loc 1 364 1 view -0
+ 319:Core/Src/main.c **** 
+ 320:Core/Src/main.c ****   /* USER CODE END SPI1_Init 2 */
+ 321:Core/Src/main.c **** 
+ 322:Core/Src/main.c **** }
+ 323:Core/Src/main.c **** 
+ 324:Core/Src/main.c **** /**
+ 325:Core/Src/main.c ****   * @brief USART1 Initialization Function
+ 326:Core/Src/main.c ****   * @param None
+ 327:Core/Src/main.c ****   * @retval None
+ 328:Core/Src/main.c ****   */
+ 329:Core/Src/main.c **** static void MX_USART1_UART_Init(void)
+ 330:Core/Src/main.c **** {
+ 331:Core/Src/main.c **** 
+ 332:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 0 */
+ 333:Core/Src/main.c **** 
+ 334:Core/Src/main.c ****   /* USER CODE END USART1_Init 0 */
+ 335:Core/Src/main.c **** 
+ 336:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 1 */
+ 337:Core/Src/main.c **** 
+ 338:Core/Src/main.c ****   /* USER CODE END USART1_Init 1 */
+ 339:Core/Src/main.c ****   huart1.Instance = USART1;
+ 340:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
+ 341:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 342:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 343:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 344:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 345:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 346:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 347:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
+ 348:Core/Src/main.c ****   {
+ 349:Core/Src/main.c ****     Error_Handler();
+ 350:Core/Src/main.c ****   }
+ 351:Core/Src/main.c ****   /* USER CODE BEGIN USART1_Init 2 */
+ 352:Core/Src/main.c **** 
+ 353:Core/Src/main.c ****   /* USER CODE END USART1_Init 2 */
+ 354:Core/Src/main.c **** 
+ 355:Core/Src/main.c **** }
+ 356:Core/Src/main.c **** 
+ 357:Core/Src/main.c **** /**
+ 358:Core/Src/main.c ****   * @brief GPIO Initialization Function
+ 359:Core/Src/main.c ****   * @param None
+ 360:Core/Src/main.c ****   * @retval None
+ 361:Core/Src/main.c ****   */
+ 362:Core/Src/main.c **** static void MX_GPIO_Init(void)
+ 363:Core/Src/main.c **** {
+  26              		.loc 1 363 1 view -0
   27              		.cfi_startproc
   28              		@ args = 0, pretend = 0, frame = 8
   29              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -415,31 +414,31 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   31 0000 82B0     		sub	sp, sp, #8
   32              	.LCFI0:
   33              		.cfi_def_cfa_offset 8
- 365:Core/Src/main.c **** 
- 366:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
- 367:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 8
+ 364:Core/Src/main.c **** 
+ 365:Core/Src/main.c ****   /* GPIO Ports Clock Enable */
+ 366:Core/Src/main.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  34              		.loc 1 366 3 view .LVU1
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 8
 
 
-  34              		.loc 1 367 3 view .LVU1
   35              	.LBB4:
-  36              		.loc 1 367 3 view .LVU2
-  37              		.loc 1 367 3 view .LVU3
+  36              		.loc 1 366 3 view .LVU2
+  37              		.loc 1 366 3 view .LVU3
   38 0002 064B     		ldr	r3, .L3
   39 0004 9A69     		ldr	r2, [r3, #24]
   40 0006 42F00402 		orr	r2, r2, #4
   41 000a 9A61     		str	r2, [r3, #24]
-  42              		.loc 1 367 3 view .LVU4
+  42              		.loc 1 366 3 view .LVU4
   43 000c 9B69     		ldr	r3, [r3, #24]
   44 000e 03F00403 		and	r3, r3, #4
   45 0012 0193     		str	r3, [sp, #4]
-  46              		.loc 1 367 3 view .LVU5
+  46              		.loc 1 366 3 view .LVU5
   47 0014 019B     		ldr	r3, [sp, #4]
   48              	.LBE4:
-  49              		.loc 1 367 3 view .LVU6
- 368:Core/Src/main.c **** 
- 369:Core/Src/main.c **** }
-  50              		.loc 1 369 1 is_stmt 0 view .LVU7
+  49              		.loc 1 366 3 view .LVU6
+ 367:Core/Src/main.c **** 
+ 368:Core/Src/main.c **** }
+  50              		.loc 1 368 1 is_stmt 0 view .LVU7
   51 0016 02B0     		add	sp, sp, #8
   52              	.LCFI1:
   53              		.cfi_def_cfa_offset 0
@@ -459,30 +458,30 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   68              		.thumb_func
   70              	StartDefaultTask:
   71              	.LFB79:
- 370:Core/Src/main.c **** 
- 371:Core/Src/main.c **** /* USER CODE BEGIN 4 */
- 372:Core/Src/main.c **** 
- 373:Core/Src/main.c **** /* USER CODE END 4 */
- 374:Core/Src/main.c **** 
- 375:Core/Src/main.c **** /* USER CODE BEGIN Header_StartDefaultTask */
- 376:Core/Src/main.c **** /**
- 377:Core/Src/main.c ****   * @brief  Function implementing the defaultTask thread.
- 378:Core/Src/main.c ****   * @param  argument: Not used
- 379:Core/Src/main.c ****   * @retval None
- 380:Core/Src/main.c ****   */
- 381:Core/Src/main.c **** /* USER CODE END Header_StartDefaultTask */
- 382:Core/Src/main.c **** void StartDefaultTask(void *argument)
- 383:Core/Src/main.c **** {
-  72              		.loc 1 383 1 is_stmt 1 view -0
+ 369:Core/Src/main.c **** 
+ 370:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 371:Core/Src/main.c **** 
+ 372:Core/Src/main.c **** /* USER CODE END 4 */
+ 373:Core/Src/main.c **** 
+ 374:Core/Src/main.c **** /* USER CODE BEGIN Header_StartDefaultTask */
+ 375:Core/Src/main.c **** /**
+ 376:Core/Src/main.c ****   * @brief  Function implementing the defaultTask thread.
+ 377:Core/Src/main.c ****   * @param  argument: Not used
+ 378:Core/Src/main.c ****   * @retval None
+ 379:Core/Src/main.c ****   */
+ 380:Core/Src/main.c **** /* USER CODE END Header_StartDefaultTask */
+ 381:Core/Src/main.c **** void StartDefaultTask(void *argument)
+ 382:Core/Src/main.c **** {
+  72              		.loc 1 382 1 is_stmt 1 view -0
   73              		.cfi_startproc
   74              		@ Volatile: function does not return.
   75              		@ args = 0, pretend = 0, frame = 0
   76              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 9
-
-
   77              	.LVL0:
-  78              		.loc 1 383 1 is_stmt 0 view .LVU9
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 9
+
+
+  78              		.loc 1 382 1 is_stmt 0 view .LVU9
   79 0000 08B5     		push	{r3, lr}
   80              	.LCFI2:
   81              		.cfi_def_cfa_offset 8
@@ -490,18 +489,18 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   83              		.cfi_offset 14, -4
   84              	.LVL1:
   85              	.L6:
- 384:Core/Src/main.c ****   /* USER CODE BEGIN 5 */
- 385:Core/Src/main.c ****   /* Infinite loop */
- 386:Core/Src/main.c ****   for(;;)
-  86              		.loc 1 386 3 is_stmt 1 discriminator 1 view .LVU10
- 387:Core/Src/main.c ****   {
- 388:Core/Src/main.c ****     osDelay(1);
-  87              		.loc 1 388 5 discriminator 1 view .LVU11
+ 383:Core/Src/main.c ****   /* USER CODE BEGIN 5 */
+ 384:Core/Src/main.c ****   /* Infinite loop */
+ 385:Core/Src/main.c ****   for(;;)
+  86              		.loc 1 385 3 is_stmt 1 discriminator 1 view .LVU10
+ 386:Core/Src/main.c ****   {
+ 387:Core/Src/main.c ****     osDelay(1);
+  87              		.loc 1 387 5 discriminator 1 view .LVU11
   88 0002 0120     		movs	r0, #1
   89 0004 FFF7FEFF 		bl	osDelay
   90              	.LVL2:
- 386:Core/Src/main.c ****   {
-  91              		.loc 1 386 3 discriminator 1 view .LVU12
+ 385:Core/Src/main.c ****   {
+  91              		.loc 1 385 3 discriminator 1 view .LVU12
   92 0008 FBE7     		b	.L6
   93              		.cfi_endproc
   94              	.LFE79:
@@ -513,44 +512,54 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  101              		.thumb_func
  103              	StartUART_Task:
  104              	.LFB81:
- 389:Core/Src/main.c ****   }
- 390:Core/Src/main.c ****   /* USER CODE END 5 */
- 391:Core/Src/main.c **** }
- 392:Core/Src/main.c **** 
- 393:Core/Src/main.c **** /* USER CODE BEGIN Header_StartESacle_Task */
- 394:Core/Src/main.c **** /**
- 395:Core/Src/main.c **** * @brief Function implementing the EScale_Task thread.
- 396:Core/Src/main.c **** * @param argument: Not used
- 397:Core/Src/main.c **** * @retval None
- 398:Core/Src/main.c **** */
- 399:Core/Src/main.c **** /* USER CODE END Header_StartESacle_Task */
- 400:Core/Src/main.c **** void StartESacle_Task(void *argument)
- 401:Core/Src/main.c **** {
- 402:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
- 403:Core/Src/main.c ****   __IO uint32_t tick = osKernelGetTickCount();
- 404:Core/Src/main.c ****     osDelay(tick);
- 405:Core/Src/main.c ****   /* USER CODE END StartESacle_Task */
- 406:Core/Src/main.c **** }
- 407:Core/Src/main.c **** 
- 408:Core/Src/main.c **** /* USER CODE BEGIN Header_StartUART_Task */
- 409:Core/Src/main.c **** /**
- 410:Core/Src/main.c **** * @brief Function implementing the UART_Task thread.
- 411:Core/Src/main.c **** * @param argument: Not used
- 412:Core/Src/main.c **** * @retval None
- 413:Core/Src/main.c **** */
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 10
+ 388:Core/Src/main.c ****   }
+ 389:Core/Src/main.c ****   /* USER CODE END 5 */
+ 390:Core/Src/main.c **** }
+ 391:Core/Src/main.c **** 
+ 392:Core/Src/main.c **** /* USER CODE BEGIN Header_StartESacle_Task */
+ 393:Core/Src/main.c **** /**
+ 394:Core/Src/main.c **** * @brief Function implementing the EScale_Task thread.
+ 395:Core/Src/main.c **** * @param argument: Not used
+ 396:Core/Src/main.c **** * @retval None
+ 397:Core/Src/main.c **** */
+ 398:Core/Src/main.c **** /* USER CODE END Header_StartESacle_Task */
+ 399:Core/Src/main.c **** void StartESacle_Task(void *argument)
+ 400:Core/Src/main.c **** {
+ 401:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
+ 402:Core/Src/main.c ****   __IO uint32_t tick = osKernelGetTickCount();
+ 403:Core/Src/main.c ****   float weight_value = 0;
+ 404:Core/Src/main.c ****   for(;;)
+ 405:Core/Src/main.c ****   {
+ 406:Core/Src/main.c ****     osSemaphoreAcquire(ESCALE_KEY,osWaitForever);
+ 407:Core/Src/main.c ****     HAL_ADC_Start_IT(&hadc1);
+ 408:Core/Src/main.c ****     weight_value = (((float)u16_ADCVal)/4095)*100;
+ 409:Core/Src/main.c ****     HAL_ADC_Stop_IT(&hadc1);
+ 410:Core/Src/main.c **** 
+ 411:Core/Src/main.c ****     osSemaphoreRelease(ESCALE_KEY);
+ 412:Core/Src/main.c ****     osDelayUntil(tick);
+ 413:Core/Src/main.c ****   }
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 10
 
 
- 414:Core/Src/main.c **** /* USER CODE END Header_StartUART_Task */
- 415:Core/Src/main.c **** void StartUART_Task(void *argument)
- 416:Core/Src/main.c **** {
- 105              		.loc 1 416 1 view -0
+ 414:Core/Src/main.c ****   /* USER CODE END StartESacle_Task */
+ 415:Core/Src/main.c **** }
+ 416:Core/Src/main.c **** 
+ 417:Core/Src/main.c **** /* USER CODE BEGIN Header_StartUART_Task */
+ 418:Core/Src/main.c **** /**
+ 419:Core/Src/main.c **** * @brief Function implementing the UART_Task thread.
+ 420:Core/Src/main.c **** * @param argument: Not used
+ 421:Core/Src/main.c **** * @retval None
+ 422:Core/Src/main.c **** */
+ 423:Core/Src/main.c **** /* USER CODE END Header_StartUART_Task */
+ 424:Core/Src/main.c **** void StartUART_Task(void *argument)
+ 425:Core/Src/main.c **** {
+ 105              		.loc 1 425 1 view -0
  106              		.cfi_startproc
  107              		@ Volatile: function does not return.
  108              		@ args = 0, pretend = 0, frame = 0
  109              		@ frame_needed = 0, uses_anonymous_args = 0
  110              	.LVL3:
- 111              		.loc 1 416 1 is_stmt 0 view .LVU14
+ 111              		.loc 1 425 1 is_stmt 0 view .LVU14
  112 0000 08B5     		push	{r3, lr}
  113              	.LCFI3:
  114              		.cfi_def_cfa_offset 8
@@ -558,18 +567,18 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  116              		.cfi_offset 14, -4
  117              	.LVL4:
  118              	.L9:
- 417:Core/Src/main.c ****   /* USER CODE BEGIN StartUART_Task */
- 418:Core/Src/main.c ****   /* Infinite loop */
- 419:Core/Src/main.c ****   for(;;)
- 119              		.loc 1 419 3 is_stmt 1 discriminator 1 view .LVU15
- 420:Core/Src/main.c ****   {
- 421:Core/Src/main.c ****     osDelay(1);
- 120              		.loc 1 421 5 discriminator 1 view .LVU16
+ 426:Core/Src/main.c ****   /* USER CODE BEGIN StartUART_Task */
+ 427:Core/Src/main.c ****   /* Infinite loop */
+ 428:Core/Src/main.c ****   for(;;)
+ 119              		.loc 1 428 3 is_stmt 1 discriminator 1 view .LVU15
+ 429:Core/Src/main.c ****   {
+ 430:Core/Src/main.c ****     osDelay(1);
+ 120              		.loc 1 430 5 discriminator 1 view .LVU16
  121 0002 0120     		movs	r0, #1
  122 0004 FFF7FEFF 		bl	osDelay
  123              	.LVL5:
- 419:Core/Src/main.c ****   {
- 124              		.loc 1 419 3 discriminator 1 view .LVU17
+ 428:Core/Src/main.c ****   {
+ 124              		.loc 1 428 3 discriminator 1 view .LVU17
  125 0008 FBE7     		b	.L9
  126              		.cfi_endproc
  127              	.LFE81:
@@ -581,29 +590,29 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  134              		.thumb_func
  136              	StartRFID_Task:
  137              	.LFB82:
- 422:Core/Src/main.c ****   }
- 423:Core/Src/main.c ****   /* USER CODE END StartUART_Task */
- 424:Core/Src/main.c **** }
- 425:Core/Src/main.c **** 
- 426:Core/Src/main.c **** /* USER CODE BEGIN Header_StartRFID_Task */
- 427:Core/Src/main.c **** /**
- 428:Core/Src/main.c **** * @brief Function implementing the RFID_Task thread.
- 429:Core/Src/main.c **** * @param argument: Not used
- 430:Core/Src/main.c **** * @retval None
- 431:Core/Src/main.c **** */
- 432:Core/Src/main.c **** /* USER CODE END Header_StartRFID_Task */
- 433:Core/Src/main.c **** void StartRFID_Task(void *argument)
- 434:Core/Src/main.c **** {
- 138              		.loc 1 434 1 view -0
+ 431:Core/Src/main.c ****   }
+ 432:Core/Src/main.c ****   /* USER CODE END StartUART_Task */
+ 433:Core/Src/main.c **** }
+ 434:Core/Src/main.c **** 
+ 435:Core/Src/main.c **** /* USER CODE BEGIN Header_StartRFID_Task */
+ 436:Core/Src/main.c **** /**
+ 437:Core/Src/main.c **** * @brief Function implementing the RFID_Task thread.
+ 438:Core/Src/main.c **** * @param argument: Not used
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 11
+
+
+ 439:Core/Src/main.c **** * @retval None
+ 440:Core/Src/main.c **** */
+ 441:Core/Src/main.c **** /* USER CODE END Header_StartRFID_Task */
+ 442:Core/Src/main.c **** void StartRFID_Task(void *argument)
+ 443:Core/Src/main.c **** {
+ 138              		.loc 1 443 1 view -0
  139              		.cfi_startproc
  140              		@ Volatile: function does not return.
  141              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 11
-
-
  142              		@ frame_needed = 0, uses_anonymous_args = 0
  143              	.LVL6:
- 144              		.loc 1 434 1 is_stmt 0 view .LVU19
+ 144              		.loc 1 443 1 is_stmt 0 view .LVU19
  145 0000 08B5     		push	{r3, lr}
  146              	.LCFI4:
  147              		.cfi_def_cfa_offset 8
@@ -611,18 +620,18 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  149              		.cfi_offset 14, -4
  150              	.LVL7:
  151              	.L12:
- 435:Core/Src/main.c ****   /* USER CODE BEGIN StartRFID_Task */
- 436:Core/Src/main.c ****   /* Infinite loop */
- 437:Core/Src/main.c ****   for(;;)
- 152              		.loc 1 437 3 is_stmt 1 discriminator 1 view .LVU20
- 438:Core/Src/main.c ****   {
- 439:Core/Src/main.c ****     osDelay(1);
- 153              		.loc 1 439 5 discriminator 1 view .LVU21
+ 444:Core/Src/main.c ****   /* USER CODE BEGIN StartRFID_Task */
+ 445:Core/Src/main.c ****   /* Infinite loop */
+ 446:Core/Src/main.c ****   for(;;)
+ 152              		.loc 1 446 3 is_stmt 1 discriminator 1 view .LVU20
+ 447:Core/Src/main.c ****   {
+ 448:Core/Src/main.c ****     osDelay(1);
+ 153              		.loc 1 448 5 discriminator 1 view .LVU21
  154 0002 0120     		movs	r0, #1
  155 0004 FFF7FEFF 		bl	osDelay
  156              	.LVL8:
- 437:Core/Src/main.c ****   {
- 157              		.loc 1 437 3 discriminator 1 view .LVU22
+ 446:Core/Src/main.c ****   {
+ 157              		.loc 1 446 3 discriminator 1 view .LVU22
  158 0008 FBE7     		b	.L12
  159              		.cfi_endproc
  160              	.LFE82:
@@ -635,214 +644,248 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  169              	StartESacle_Task:
  170              	.LVL9:
  171              	.LFB80:
- 401:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
- 172              		.loc 1 401 1 view -0
+ 400:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
+ 172              		.loc 1 400 1 view -0
  173              		.cfi_startproc
  174              		@ args = 0, pretend = 0, frame = 8
  175              		@ frame_needed = 0, uses_anonymous_args = 0
- 401:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
- 176              		.loc 1 401 1 is_stmt 0 view .LVU24
- 177 0000 00B5     		push	{lr}
+ 400:Core/Src/main.c ****   /* USER CODE BEGIN StartESacle_Task */
+ 176              		.loc 1 400 1 is_stmt 0 view .LVU24
+ 177 0000 30B5     		push	{r4, r5, lr}
  178              	.LCFI5:
- 179              		.cfi_def_cfa_offset 4
- 180              		.cfi_offset 14, -4
- 181 0002 83B0     		sub	sp, sp, #12
- 182              	.LCFI6:
- 183              		.cfi_def_cfa_offset 16
- 403:Core/Src/main.c ****     osDelay(tick);
- 184              		.loc 1 403 3 is_stmt 1 view .LVU25
- 403:Core/Src/main.c ****     osDelay(tick);
- 185              		.loc 1 403 24 is_stmt 0 view .LVU26
- 186 0004 FFF7FEFF 		bl	osKernelGetTickCount
- 187              	.LVL10:
- 403:Core/Src/main.c ****     osDelay(tick);
- 188              		.loc 1 403 17 view .LVU27
- 189 0008 0190     		str	r0, [sp, #4]
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 12
+ 179              		.cfi_def_cfa_offset 12
+ 180              		.cfi_offset 4, -12
+ 181              		.cfi_offset 5, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 12
 
 
- 404:Core/Src/main.c ****   /* USER CODE END StartESacle_Task */
- 190              		.loc 1 404 5 is_stmt 1 view .LVU28
- 191 000a 0198     		ldr	r0, [sp, #4]
- 192 000c FFF7FEFF 		bl	osDelay
+ 184              	.LCFI6:
+ 185              		.cfi_def_cfa_offset 24
+ 402:Core/Src/main.c ****   float weight_value = 0;
+ 186              		.loc 1 402 3 is_stmt 1 view .LVU25
+ 402:Core/Src/main.c ****   float weight_value = 0;
+ 187              		.loc 1 402 24 is_stmt 0 view .LVU26
+ 188 0004 FFF7FEFF 		bl	osKernelGetTickCount
+ 189              	.LVL10:
+ 402:Core/Src/main.c ****   float weight_value = 0;
+ 190              		.loc 1 402 17 view .LVU27
+ 191 0008 0190     		str	r0, [sp, #4]
+ 403:Core/Src/main.c ****   for(;;)
+ 192              		.loc 1 403 3 is_stmt 1 view .LVU28
  193              	.LVL11:
- 406:Core/Src/main.c **** 
- 194              		.loc 1 406 1 is_stmt 0 view .LVU29
- 195 0010 03B0     		add	sp, sp, #12
- 196              	.LCFI7:
- 197              		.cfi_def_cfa_offset 4
- 198              		@ sp needed
- 199 0012 5DF804FB 		ldr	pc, [sp], #4
- 200              		.cfi_endproc
- 201              	.LFE80:
- 203              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
- 204              		.align	1
- 205              		.global	HAL_ADC_ConvCpltCallback
- 206              		.syntax unified
- 207              		.thumb
- 208              		.thumb_func
- 210              	HAL_ADC_ConvCpltCallback:
- 211              	.LVL12:
- 212              	.LFB72:
+ 194              	.L15:
+ 404:Core/Src/main.c ****   {
+ 195              		.loc 1 404 3 discriminator 1 view .LVU29
+ 406:Core/Src/main.c ****     HAL_ADC_Start_IT(&hadc1);
+ 196              		.loc 1 406 5 discriminator 1 view .LVU30
+ 197 000a 0A4C     		ldr	r4, .L17
+ 198 000c 4FF0FF31 		mov	r1, #-1
+ 199 0010 2068     		ldr	r0, [r4]
+ 200 0012 FFF7FEFF 		bl	osSemaphoreAcquire
+ 201              	.LVL12:
+ 407:Core/Src/main.c ****     weight_value = (((float)u16_ADCVal)/4095)*100;
+ 202              		.loc 1 407 5 discriminator 1 view .LVU31
+ 203 0016 084D     		ldr	r5, .L17+4
+ 204 0018 2846     		mov	r0, r5
+ 205 001a FFF7FEFF 		bl	HAL_ADC_Start_IT
+ 206              	.LVL13:
+ 408:Core/Src/main.c ****     HAL_ADC_Stop_IT(&hadc1);
+ 207              		.loc 1 408 5 discriminator 1 view .LVU32
+ 409:Core/Src/main.c **** 
+ 208              		.loc 1 409 5 discriminator 1 view .LVU33
+ 209 001e 2846     		mov	r0, r5
+ 210 0020 FFF7FEFF 		bl	HAL_ADC_Stop_IT
+ 211              	.LVL14:
+ 411:Core/Src/main.c ****     osDelayUntil(tick);
+ 212              		.loc 1 411 5 discriminator 1 view .LVU34
+ 213 0024 2068     		ldr	r0, [r4]
+ 214 0026 FFF7FEFF 		bl	osSemaphoreRelease
+ 215              	.LVL15:
+ 412:Core/Src/main.c ****   }
+ 216              		.loc 1 412 5 discriminator 1 view .LVU35
+ 217 002a 0198     		ldr	r0, [sp, #4]
+ 218 002c FFF7FEFF 		bl	osDelayUntil
+ 219              	.LVL16:
+ 404:Core/Src/main.c ****   {
+ 220              		.loc 1 404 3 discriminator 1 view .LVU36
+ 221 0030 EBE7     		b	.L15
+ 222              	.L18:
+ 223 0032 00BF     		.align	2
+ 224              	.L17:
+ 225 0034 00000000 		.word	.LANCHOR0
+ 226 0038 00000000 		.word	.LANCHOR1
+ 227              		.cfi_endproc
+ 228              	.LFE80:
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 13
+
+
+ 230              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	HAL_ADC_ConvCpltCallback
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	HAL_ADC_ConvCpltCallback:
+ 238              	.LVL17:
+ 239              	.LFB72:
  102:Core/Src/main.c ****   if(hadc->Instance == ADC1)
- 213              		.loc 1 102 1 is_stmt 1 view -0
- 214              		.cfi_startproc
- 215              		@ args = 0, pretend = 0, frame = 0
- 216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		.loc 1 102 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
  102:Core/Src/main.c ****   if(hadc->Instance == ADC1)
- 217              		.loc 1 102 1 is_stmt 0 view .LVU31
- 218 0000 08B5     		push	{r3, lr}
- 219              	.LCFI8:
- 220              		.cfi_def_cfa_offset 8
- 221              		.cfi_offset 3, -8
- 222              		.cfi_offset 14, -4
+ 244              		.loc 1 102 1 is_stmt 0 view .LVU38
+ 245 0000 08B5     		push	{r3, lr}
+ 246              	.LCFI7:
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 3, -8
+ 249              		.cfi_offset 14, -4
  103:Core/Src/main.c ****   {
- 223              		.loc 1 103 3 is_stmt 1 view .LVU32
+ 250              		.loc 1 103 3 is_stmt 1 view .LVU39
  103:Core/Src/main.c ****   {
- 224              		.loc 1 103 10 is_stmt 0 view .LVU33
- 225 0002 0268     		ldr	r2, [r0]
+ 251              		.loc 1 103 10 is_stmt 0 view .LVU40
+ 252 0002 0268     		ldr	r2, [r0]
  103:Core/Src/main.c ****   {
- 226              		.loc 1 103 5 view .LVU34
- 227 0004 044B     		ldr	r3, .L20
- 228 0006 9A42     		cmp	r2, r3
- 229 0008 00D0     		beq	.L19
- 230              	.LVL13:
- 231              	.L16:
+ 253              		.loc 1 103 5 view .LVU41
+ 254 0004 044B     		ldr	r3, .L23
+ 255 0006 9A42     		cmp	r2, r3
+ 256 0008 00D0     		beq	.L22
+ 257              	.LVL18:
+ 258              	.L19:
  107:Core/Src/main.c **** /* USER CODE END 0 */
- 232              		.loc 1 107 1 view .LVU35
- 233 000a 08BD     		pop	{r3, pc}
- 234              	.LVL14:
- 235              	.L19:
+ 259              		.loc 1 107 1 view .LVU42
+ 260 000a 08BD     		pop	{r3, pc}
+ 261              	.LVL19:
+ 262              	.L22:
  105:Core/Src/main.c ****   }
- 236              		.loc 1 105 5 is_stmt 1 view .LVU36
+ 263              		.loc 1 105 5 is_stmt 1 view .LVU43
  105:Core/Src/main.c ****   }
- 237              		.loc 1 105 18 is_stmt 0 view .LVU37
- 238 000c 0348     		ldr	r0, .L20+4
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 13
-
-
- 239              	.LVL15:
+ 264              		.loc 1 105 18 is_stmt 0 view .LVU44
+ 265 000c 0348     		ldr	r0, .L23+4
+ 266              	.LVL20:
  105:Core/Src/main.c ****   }
- 240              		.loc 1 105 18 view .LVU38
- 241 000e FFF7FEFF 		bl	HAL_ADC_GetValue
- 242              	.LVL16:
+ 267              		.loc 1 105 18 view .LVU45
+ 268 000e FFF7FEFF 		bl	HAL_ADC_GetValue
+ 269              	.LVL21:
  105:Core/Src/main.c ****   }
- 243              		.loc 1 105 16 view .LVU39
- 244 0012 034B     		ldr	r3, .L20+8
- 245 0014 1880     		strh	r0, [r3]	@ movhi
+ 270              		.loc 1 105 16 view .LVU46
+ 271 0012 034B     		ldr	r3, .L23+8
+ 272 0014 1880     		strh	r0, [r3]	@ movhi
  107:Core/Src/main.c **** /* USER CODE END 0 */
- 246              		.loc 1 107 1 view .LVU40
- 247 0016 F8E7     		b	.L16
- 248              	.L21:
- 249              		.align	2
- 250              	.L20:
- 251 0018 00240140 		.word	1073816576
- 252 001c 00000000 		.word	.LANCHOR0
- 253 0020 00000000 		.word	.LANCHOR1
- 254              		.cfi_endproc
- 255              	.LFE72:
- 257              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
- 258              		.align	1
- 259              		.global	HAL_TIM_PeriodElapsedCallback
- 260              		.syntax unified
- 261              		.thumb
- 262              		.thumb_func
- 264              	HAL_TIM_PeriodElapsedCallback:
- 265              	.LVL17:
- 266              	.LFB83:
- 440:Core/Src/main.c ****   }
- 441:Core/Src/main.c ****   /* USER CODE END StartRFID_Task */
- 442:Core/Src/main.c **** }
- 443:Core/Src/main.c **** 
- 444:Core/Src/main.c **** /**
- 445:Core/Src/main.c ****   * @brief  Period elapsed callback in non blocking mode
- 446:Core/Src/main.c ****   * @note   This function is called  when TIM1 interrupt took place, inside
- 447:Core/Src/main.c ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
- 448:Core/Src/main.c ****   * a global variable "uwTick" used as application time base.
- 449:Core/Src/main.c ****   * @param  htim : TIM handle
- 450:Core/Src/main.c ****   * @retval None
- 451:Core/Src/main.c ****   */
- 452:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
- 453:Core/Src/main.c **** {
- 267              		.loc 1 453 1 is_stmt 1 view -0
- 268              		.cfi_startproc
- 269              		@ args = 0, pretend = 0, frame = 0
- 270              		@ frame_needed = 0, uses_anonymous_args = 0
- 271              		.loc 1 453 1 is_stmt 0 view .LVU42
- 272 0000 08B5     		push	{r3, lr}
- 273              	.LCFI9:
- 274              		.cfi_def_cfa_offset 8
- 275              		.cfi_offset 3, -8
- 276              		.cfi_offset 14, -4
- 454:Core/Src/main.c ****   /* USER CODE BEGIN Callback 0 */
- 455:Core/Src/main.c **** 
- 456:Core/Src/main.c ****   /* USER CODE END Callback 0 */
- 457:Core/Src/main.c ****   if (htim->Instance == TIM1) {
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 14
+ 273              		.loc 1 107 1 view .LVU47
+ 274 0016 F8E7     		b	.L19
+ 275              	.L24:
+ 276              		.align	2
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 14
 
 
- 277              		.loc 1 457 3 is_stmt 1 view .LVU43
- 278              		.loc 1 457 11 is_stmt 0 view .LVU44
- 279 0002 0268     		ldr	r2, [r0]
- 280              		.loc 1 457 6 view .LVU45
- 281 0004 034B     		ldr	r3, .L26
- 282 0006 9A42     		cmp	r2, r3
- 283 0008 00D0     		beq	.L25
- 284              	.LVL18:
- 285              	.L22:
- 458:Core/Src/main.c ****     HAL_IncTick();
- 459:Core/Src/main.c ****   }
- 460:Core/Src/main.c ****   /* USER CODE BEGIN Callback 1 */
- 461:Core/Src/main.c **** 
- 462:Core/Src/main.c ****   /* USER CODE END Callback 1 */
- 463:Core/Src/main.c **** }
- 286              		.loc 1 463 1 view .LVU46
- 287 000a 08BD     		pop	{r3, pc}
- 288              	.LVL19:
- 289              	.L25:
- 458:Core/Src/main.c ****     HAL_IncTick();
- 290              		.loc 1 458 5 is_stmt 1 view .LVU47
- 291 000c FFF7FEFF 		bl	HAL_IncTick
- 292              	.LVL20:
- 293              		.loc 1 463 1 is_stmt 0 view .LVU48
- 294 0010 FBE7     		b	.L22
- 295              	.L27:
- 296 0012 00BF     		.align	2
- 297              	.L26:
- 298 0014 002C0140 		.word	1073818624
- 299              		.cfi_endproc
- 300              	.LFE83:
- 302              		.section	.text.Error_Handler,"ax",%progbits
- 303              		.align	1
- 304              		.global	Error_Handler
- 305              		.syntax unified
- 306              		.thumb
- 307              		.thumb_func
- 309              	Error_Handler:
- 310              	.LFB84:
+ 277              	.L23:
+ 278 0018 00240140 		.word	1073816576
+ 279 001c 00000000 		.word	.LANCHOR1
+ 280 0020 00000000 		.word	.LANCHOR2
+ 281              		.cfi_endproc
+ 282              	.LFE72:
+ 284              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	HAL_TIM_PeriodElapsedCallback
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	HAL_TIM_PeriodElapsedCallback:
+ 292              	.LVL22:
+ 293              	.LFB83:
+ 449:Core/Src/main.c ****   }
+ 450:Core/Src/main.c ****   /* USER CODE END StartRFID_Task */
+ 451:Core/Src/main.c **** }
+ 452:Core/Src/main.c **** 
+ 453:Core/Src/main.c **** /**
+ 454:Core/Src/main.c ****   * @brief  Period elapsed callback in non blocking mode
+ 455:Core/Src/main.c ****   * @note   This function is called  when TIM1 interrupt took place, inside
+ 456:Core/Src/main.c ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+ 457:Core/Src/main.c ****   * a global variable "uwTick" used as application time base.
+ 458:Core/Src/main.c ****   * @param  htim : TIM handle
+ 459:Core/Src/main.c ****   * @retval None
+ 460:Core/Src/main.c ****   */
+ 461:Core/Src/main.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 462:Core/Src/main.c **** {
+ 294              		.loc 1 462 1 is_stmt 1 view -0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298              		.loc 1 462 1 is_stmt 0 view .LVU49
+ 299 0000 08B5     		push	{r3, lr}
+ 300              	.LCFI8:
+ 301              		.cfi_def_cfa_offset 8
+ 302              		.cfi_offset 3, -8
+ 303              		.cfi_offset 14, -4
+ 463:Core/Src/main.c ****   /* USER CODE BEGIN Callback 0 */
  464:Core/Src/main.c **** 
- 465:Core/Src/main.c **** /**
- 466:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 467:Core/Src/main.c ****   * @retval None
- 468:Core/Src/main.c ****   */
- 469:Core/Src/main.c **** void Error_Handler(void)
- 470:Core/Src/main.c **** {
- 311              		.loc 1 470 1 is_stmt 1 view -0
- 312              		.cfi_startproc
- 313              		@ Volatile: function does not return.
- 314              		@ args = 0, pretend = 0, frame = 0
- 315              		@ frame_needed = 0, uses_anonymous_args = 0
- 316              		@ link register save eliminated.
- 471:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 472:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 473:Core/Src/main.c ****   __disable_irq();
- 317              		.loc 1 473 3 view .LVU50
- 318              	.LBB5:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 15
+ 465:Core/Src/main.c ****   /* USER CODE END Callback 0 */
+ 466:Core/Src/main.c ****   if (htim->Instance == TIM1) {
+ 304              		.loc 1 466 3 is_stmt 1 view .LVU50
+ 305              		.loc 1 466 11 is_stmt 0 view .LVU51
+ 306 0002 0268     		ldr	r2, [r0]
+ 307              		.loc 1 466 6 view .LVU52
+ 308 0004 034B     		ldr	r3, .L29
+ 309 0006 9A42     		cmp	r2, r3
+ 310 0008 00D0     		beq	.L28
+ 311              	.LVL23:
+ 312              	.L25:
+ 467:Core/Src/main.c ****     HAL_IncTick();
+ 468:Core/Src/main.c ****   }
+ 469:Core/Src/main.c ****   /* USER CODE BEGIN Callback 1 */
+ 470:Core/Src/main.c **** 
+ 471:Core/Src/main.c ****   /* USER CODE END Callback 1 */
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 15
 
 
- 319              	.LBI5:
- 320              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 472:Core/Src/main.c **** }
+ 313              		.loc 1 472 1 view .LVU53
+ 314 000a 08BD     		pop	{r3, pc}
+ 315              	.LVL24:
+ 316              	.L28:
+ 467:Core/Src/main.c ****     HAL_IncTick();
+ 317              		.loc 1 467 5 is_stmt 1 view .LVU54
+ 318 000c FFF7FEFF 		bl	HAL_IncTick
+ 319              	.LVL25:
+ 320              		.loc 1 472 1 is_stmt 0 view .LVU55
+ 321 0010 FBE7     		b	.L25
+ 322              	.L30:
+ 323 0012 00BF     		.align	2
+ 324              	.L29:
+ 325 0014 002C0140 		.word	1073818624
+ 326              		.cfi_endproc
+ 327              	.LFE83:
+ 329              		.section	.text.Error_Handler,"ax",%progbits
+ 330              		.align	1
+ 331              		.global	Error_Handler
+ 332              		.syntax unified
+ 333              		.thumb
+ 334              		.thumb_func
+ 336              	Error_Handler:
+ 337              	.LFB84:
+ 473:Core/Src/main.c **** 
+ 474:Core/Src/main.c **** /**
+ 475:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 476:Core/Src/main.c ****   * @retval None
+ 477:Core/Src/main.c ****   */
+ 478:Core/Src/main.c **** void Error_Handler(void)
+ 479:Core/Src/main.c **** {
+ 338              		.loc 1 479 1 is_stmt 1 view -0
+ 339              		.cfi_startproc
+ 340              		@ Volatile: function does not return.
+ 341              		@ args = 0, pretend = 0, frame = 0
+ 342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343              		@ link register save eliminated.
+ 480:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 481:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 482:Core/Src/main.c ****   __disable_irq();
+ 344              		.loc 1 482 3 view .LVU57
+ 345              	.LBB5:
+ 346              	.LBI5:
+ 347              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -855,6 +898,9 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 16
+
+
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
@@ -898,9 +944,6 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 16
-
-
   56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
@@ -915,6 +958,9 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 17
+
+
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -958,9 +1004,6 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 17
-
-
  113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -975,6 +1018,9 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 18
+
+
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
@@ -989,910 +1035,938 @@ ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 1
  138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 321              		.loc 2 140 27 view .LVU51
- 322              	.LBB6:
+ 348              		.loc 2 140 27 view .LVU58
+ 349              	.LBB6:
  141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 323              		.loc 2 142 3 view .LVU52
- 324              		.syntax unified
- 325              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 326 0000 72B6     		cpsid i
- 327              	@ 0 "" 2
- 328              		.thumb
- 329              		.syntax unified
- 330              	.L29:
- 331              	.LBE6:
- 332              	.LBE5:
- 474:Core/Src/main.c ****   while (1)
- 333              		.loc 1 474 3 discriminator 1 view .LVU53
- 475:Core/Src/main.c ****   {
- 476:Core/Src/main.c ****   }
- 334              		.loc 1 476 3 discriminator 1 view .LVU54
- 474:Core/Src/main.c ****   while (1)
- 335              		.loc 1 474 9 discriminator 1 view .LVU55
- 336 0002 FEE7     		b	.L29
- 337              		.cfi_endproc
- 338              	.LFE84:
- 340              		.section	.text.MX_ADC1_Init,"ax",%progbits
- 341              		.align	1
- 342              		.syntax unified
- 343              		.thumb
- 344              		.thumb_func
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 18
+ 350              		.loc 2 142 3 view .LVU59
+ 351              		.syntax unified
+ 352              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 353 0000 72B6     		cpsid i
+ 354              	@ 0 "" 2
+ 355              		.thumb
+ 356              		.syntax unified
+ 357              	.L32:
+ 358              	.LBE6:
+ 359              	.LBE5:
+ 483:Core/Src/main.c ****   while (1)
+ 360              		.loc 1 483 3 discriminator 1 view .LVU60
+ 484:Core/Src/main.c ****   {
+ 485:Core/Src/main.c ****   }
+ 361              		.loc 1 485 3 discriminator 1 view .LVU61
+ 483:Core/Src/main.c ****   while (1)
+ 362              		.loc 1 483 9 discriminator 1 view .LVU62
+ 363 0002 FEE7     		b	.L32
+ 364              		.cfi_endproc
+ 365              	.LFE84:
+ 367              		.section	.text.MX_ADC1_Init,"ax",%progbits
+ 368              		.align	1
+ 369              		.syntax unified
+ 370              		.thumb
+ 371              		.thumb_func
+ 373              	MX_ADC1_Init:
+ 374              	.LFB75:
+ 247:Core/Src/main.c **** 
+ 375              		.loc 1 247 1 view -0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 16
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379 0000 00B5     		push	{lr}
+ 380              	.LCFI9:
+ 381              		.cfi_def_cfa_offset 4
+ 382              		.cfi_offset 14, -4
+ 383 0002 85B0     		sub	sp, sp, #20
+ 384              	.LCFI10:
+ 385              		.cfi_def_cfa_offset 24
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 19
 
 
- 346              	MX_ADC1_Init:
- 347              	.LFB75:
- 248:Core/Src/main.c **** 
- 348              		.loc 1 248 1 view -0
- 349              		.cfi_startproc
- 350              		@ args = 0, pretend = 0, frame = 16
- 351              		@ frame_needed = 0, uses_anonymous_args = 0
- 352 0000 00B5     		push	{lr}
- 353              	.LCFI10:
- 354              		.cfi_def_cfa_offset 4
- 355              		.cfi_offset 14, -4
- 356 0002 85B0     		sub	sp, sp, #20
- 357              	.LCFI11:
- 358              		.cfi_def_cfa_offset 24
- 254:Core/Src/main.c **** 
- 359              		.loc 1 254 3 view .LVU57
- 254:Core/Src/main.c **** 
- 360              		.loc 1 254 26 is_stmt 0 view .LVU58
- 361 0004 0023     		movs	r3, #0
- 362 0006 0193     		str	r3, [sp, #4]
- 363 0008 0293     		str	r3, [sp, #8]
- 364 000a 0393     		str	r3, [sp, #12]
- 261:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
- 365              		.loc 1 261 3 is_stmt 1 view .LVU59
- 261:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
- 366              		.loc 1 261 18 is_stmt 0 view .LVU60
- 367 000c 0F48     		ldr	r0, .L36
- 368 000e 104A     		ldr	r2, .L36+4
- 369 0010 0260     		str	r2, [r0]
- 262:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
- 370              		.loc 1 262 3 is_stmt 1 view .LVU61
- 262:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
- 371              		.loc 1 262 27 is_stmt 0 view .LVU62
- 372 0012 8360     		str	r3, [r0, #8]
- 263:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
- 373              		.loc 1 263 3 is_stmt 1 view .LVU63
- 263:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
- 374              		.loc 1 263 33 is_stmt 0 view .LVU64
- 375 0014 0373     		strb	r3, [r0, #12]
- 264:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
- 376              		.loc 1 264 3 is_stmt 1 view .LVU65
- 264:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
- 377              		.loc 1 264 36 is_stmt 0 view .LVU66
- 378 0016 0375     		strb	r3, [r0, #20]
- 265:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
- 379              		.loc 1 265 3 is_stmt 1 view .LVU67
- 265:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
- 380              		.loc 1 265 31 is_stmt 0 view .LVU68
- 381 0018 4FF46022 		mov	r2, #917504
- 382 001c C261     		str	r2, [r0, #28]
- 266:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
- 383              		.loc 1 266 3 is_stmt 1 view .LVU69
- 266:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
- 384              		.loc 1 266 24 is_stmt 0 view .LVU70
- 385 001e 4360     		str	r3, [r0, #4]
- 267:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
- 386              		.loc 1 267 3 is_stmt 1 view .LVU71
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 19
+ 253:Core/Src/main.c **** 
+ 386              		.loc 1 253 3 view .LVU64
+ 253:Core/Src/main.c **** 
+ 387              		.loc 1 253 26 is_stmt 0 view .LVU65
+ 388 0004 0023     		movs	r3, #0
+ 389 0006 0193     		str	r3, [sp, #4]
+ 390 0008 0293     		str	r3, [sp, #8]
+ 391 000a 0393     		str	r3, [sp, #12]
+ 260:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+ 392              		.loc 1 260 3 is_stmt 1 view .LVU66
+ 260:Core/Src/main.c ****   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+ 393              		.loc 1 260 18 is_stmt 0 view .LVU67
+ 394 000c 0F48     		ldr	r0, .L39
+ 395 000e 104A     		ldr	r2, .L39+4
+ 396 0010 0260     		str	r2, [r0]
+ 261:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+ 397              		.loc 1 261 3 is_stmt 1 view .LVU68
+ 261:Core/Src/main.c ****   hadc1.Init.ContinuousConvMode = DISABLE;
+ 398              		.loc 1 261 27 is_stmt 0 view .LVU69
+ 399 0012 8360     		str	r3, [r0, #8]
+ 262:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+ 400              		.loc 1 262 3 is_stmt 1 view .LVU70
+ 262:Core/Src/main.c ****   hadc1.Init.DiscontinuousConvMode = DISABLE;
+ 401              		.loc 1 262 33 is_stmt 0 view .LVU71
+ 402 0014 0373     		strb	r3, [r0, #12]
+ 263:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 403              		.loc 1 263 3 is_stmt 1 view .LVU72
+ 263:Core/Src/main.c ****   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+ 404              		.loc 1 263 36 is_stmt 0 view .LVU73
+ 405 0016 0375     		strb	r3, [r0, #20]
+ 264:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 406              		.loc 1 264 3 is_stmt 1 view .LVU74
+ 264:Core/Src/main.c ****   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+ 407              		.loc 1 264 31 is_stmt 0 view .LVU75
+ 408 0018 4FF46022 		mov	r2, #917504
+ 409 001c C261     		str	r2, [r0, #28]
+ 265:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
+ 410              		.loc 1 265 3 is_stmt 1 view .LVU76
+ 265:Core/Src/main.c ****   hadc1.Init.NbrOfConversion = 1;
+ 411              		.loc 1 265 24 is_stmt 0 view .LVU77
+ 412 001e 4360     		str	r3, [r0, #4]
+ 266:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
+ 413              		.loc 1 266 3 is_stmt 1 view .LVU78
+ 266:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
+ 414              		.loc 1 266 30 is_stmt 0 view .LVU79
+ 415 0020 0123     		movs	r3, #1
+ 416 0022 0361     		str	r3, [r0, #16]
+ 267:Core/Src/main.c ****   {
+ 417              		.loc 1 267 3 is_stmt 1 view .LVU80
+ 267:Core/Src/main.c ****   {
+ 418              		.loc 1 267 7 is_stmt 0 view .LVU81
+ 419 0024 FFF7FEFF 		bl	HAL_ADC_Init
+ 420              	.LVL26:
+ 267:Core/Src/main.c ****   {
+ 421              		.loc 1 267 6 view .LVU82
+ 422 0028 60B9     		cbnz	r0, .L37
+ 273:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 20
 
 
- 267:Core/Src/main.c ****   if (HAL_ADC_Init(&hadc1) != HAL_OK)
- 387              		.loc 1 267 30 is_stmt 0 view .LVU72
- 388 0020 0123     		movs	r3, #1
- 389 0022 0361     		str	r3, [r0, #16]
- 268:Core/Src/main.c ****   {
- 390              		.loc 1 268 3 is_stmt 1 view .LVU73
- 268:Core/Src/main.c ****   {
- 391              		.loc 1 268 7 is_stmt 0 view .LVU74
- 392 0024 FFF7FEFF 		bl	HAL_ADC_Init
- 393              	.LVL21:
- 268:Core/Src/main.c ****   {
- 394              		.loc 1 268 6 view .LVU75
- 395 0028 60B9     		cbnz	r0, .L34
- 274:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
- 396              		.loc 1 274 3 is_stmt 1 view .LVU76
- 274:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
- 397              		.loc 1 274 19 is_stmt 0 view .LVU77
- 398 002a 0023     		movs	r3, #0
- 399 002c 0193     		str	r3, [sp, #4]
- 275:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
- 400              		.loc 1 275 3 is_stmt 1 view .LVU78
- 275:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
- 401              		.loc 1 275 16 is_stmt 0 view .LVU79
- 402 002e 0122     		movs	r2, #1
- 403 0030 0292     		str	r2, [sp, #8]
- 276:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
- 404              		.loc 1 276 3 is_stmt 1 view .LVU80
- 276:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
- 405              		.loc 1 276 24 is_stmt 0 view .LVU81
- 406 0032 0393     		str	r3, [sp, #12]
- 277:Core/Src/main.c ****   {
- 407              		.loc 1 277 3 is_stmt 1 view .LVU82
- 277:Core/Src/main.c ****   {
- 408              		.loc 1 277 7 is_stmt 0 view .LVU83
- 409 0034 01A9     		add	r1, sp, #4
- 410 0036 0548     		ldr	r0, .L36
- 411 0038 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
- 412              	.LVL22:
- 277:Core/Src/main.c ****   {
- 413              		.loc 1 277 6 view .LVU84
- 414 003c 20B9     		cbnz	r0, .L35
- 285:Core/Src/main.c **** 
- 415              		.loc 1 285 1 view .LVU85
- 416 003e 05B0     		add	sp, sp, #20
- 417              	.LCFI12:
- 418              		.cfi_remember_state
- 419              		.cfi_def_cfa_offset 4
- 420              		@ sp needed
- 421 0040 5DF804FB 		ldr	pc, [sp], #4
- 422              	.L34:
- 423              	.LCFI13:
- 424              		.cfi_restore_state
- 270:Core/Src/main.c ****   }
- 425              		.loc 1 270 5 is_stmt 1 view .LVU86
- 426 0044 FFF7FEFF 		bl	Error_Handler
- 427              	.LVL23:
- 428              	.L35:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 20
+ 423              		.loc 1 273 3 is_stmt 1 view .LVU83
+ 273:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
+ 424              		.loc 1 273 19 is_stmt 0 view .LVU84
+ 425 002a 0023     		movs	r3, #0
+ 426 002c 0193     		str	r3, [sp, #4]
+ 274:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+ 427              		.loc 1 274 3 is_stmt 1 view .LVU85
+ 274:Core/Src/main.c ****   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+ 428              		.loc 1 274 16 is_stmt 0 view .LVU86
+ 429 002e 0122     		movs	r2, #1
+ 430 0030 0292     		str	r2, [sp, #8]
+ 275:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 431              		.loc 1 275 3 is_stmt 1 view .LVU87
+ 275:Core/Src/main.c ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+ 432              		.loc 1 275 24 is_stmt 0 view .LVU88
+ 433 0032 0393     		str	r3, [sp, #12]
+ 276:Core/Src/main.c ****   {
+ 434              		.loc 1 276 3 is_stmt 1 view .LVU89
+ 276:Core/Src/main.c ****   {
+ 435              		.loc 1 276 7 is_stmt 0 view .LVU90
+ 436 0034 01A9     		add	r1, sp, #4
+ 437 0036 0548     		ldr	r0, .L39
+ 438 0038 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 439              	.LVL27:
+ 276:Core/Src/main.c ****   {
+ 440              		.loc 1 276 6 view .LVU91
+ 441 003c 20B9     		cbnz	r0, .L38
+ 284:Core/Src/main.c **** 
+ 442              		.loc 1 284 1 view .LVU92
+ 443 003e 05B0     		add	sp, sp, #20
+ 444              	.LCFI11:
+ 445              		.cfi_remember_state
+ 446              		.cfi_def_cfa_offset 4
+ 447              		@ sp needed
+ 448 0040 5DF804FB 		ldr	pc, [sp], #4
+ 449              	.L37:
+ 450              	.LCFI12:
+ 451              		.cfi_restore_state
+ 269:Core/Src/main.c ****   }
+ 452              		.loc 1 269 5 is_stmt 1 view .LVU93
+ 453 0044 FFF7FEFF 		bl	Error_Handler
+ 454              	.LVL28:
+ 455              	.L38:
+ 278:Core/Src/main.c ****   }
+ 456              		.loc 1 278 5 view .LVU94
+ 457 0048 FFF7FEFF 		bl	Error_Handler
+ 458              	.LVL29:
+ 459              	.L40:
+ 460              		.align	2
+ 461              	.L39:
+ 462 004c 00000000 		.word	.LANCHOR1
+ 463 0050 00240140 		.word	1073816576
+ 464              		.cfi_endproc
+ 465              	.LFE75:
+ 467              		.section	.text.MX_SPI1_Init,"ax",%progbits
+ 468              		.align	1
+ 469              		.syntax unified
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 21
 
 
- 279:Core/Src/main.c ****   }
- 429              		.loc 1 279 5 view .LVU87
- 430 0048 FFF7FEFF 		bl	Error_Handler
- 431              	.LVL24:
- 432              	.L37:
- 433              		.align	2
- 434              	.L36:
- 435 004c 00000000 		.word	.LANCHOR0
- 436 0050 00240140 		.word	1073816576
- 437              		.cfi_endproc
- 438              	.LFE75:
- 440              		.section	.text.MX_SPI1_Init,"ax",%progbits
- 441              		.align	1
- 442              		.syntax unified
- 443              		.thumb
- 444              		.thumb_func
- 446              	MX_SPI1_Init:
- 447              	.LFB76:
- 293:Core/Src/main.c **** 
- 448              		.loc 1 293 1 view -0
- 449              		.cfi_startproc
- 450              		@ args = 0, pretend = 0, frame = 0
- 451              		@ frame_needed = 0, uses_anonymous_args = 0
- 452 0000 08B5     		push	{r3, lr}
- 453              	.LCFI14:
- 454              		.cfi_def_cfa_offset 8
- 455              		.cfi_offset 3, -8
- 456              		.cfi_offset 14, -4
- 303:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
- 457              		.loc 1 303 3 view .LVU89
- 303:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
- 458              		.loc 1 303 18 is_stmt 0 view .LVU90
- 459 0002 0D48     		ldr	r0, .L42
- 460 0004 0D4B     		ldr	r3, .L42+4
- 461 0006 0360     		str	r3, [r0]
- 304:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 462              		.loc 1 304 3 is_stmt 1 view .LVU91
- 304:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
- 463              		.loc 1 304 19 is_stmt 0 view .LVU92
- 464 0008 4FF48273 		mov	r3, #260
- 465 000c 4360     		str	r3, [r0, #4]
- 305:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
- 466              		.loc 1 305 3 is_stmt 1 view .LVU93
- 305:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
- 467              		.loc 1 305 24 is_stmt 0 view .LVU94
- 468 000e 0023     		movs	r3, #0
- 469 0010 8360     		str	r3, [r0, #8]
- 306:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
- 470              		.loc 1 306 3 is_stmt 1 view .LVU95
- 306:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
- 471              		.loc 1 306 23 is_stmt 0 view .LVU96
- 472 0012 C360     		str	r3, [r0, #12]
- 307:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
- 473              		.loc 1 307 3 is_stmt 1 view .LVU97
- 307:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
- 474              		.loc 1 307 26 is_stmt 0 view .LVU98
- 475 0014 0361     		str	r3, [r0, #16]
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 21
+ 470              		.thumb
+ 471              		.thumb_func
+ 473              	MX_SPI1_Init:
+ 474              	.LFB76:
+ 292:Core/Src/main.c **** 
+ 475              		.loc 1 292 1 view -0
+ 476              		.cfi_startproc
+ 477              		@ args = 0, pretend = 0, frame = 0
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479 0000 08B5     		push	{r3, lr}
+ 480              	.LCFI13:
+ 481              		.cfi_def_cfa_offset 8
+ 482              		.cfi_offset 3, -8
+ 483              		.cfi_offset 14, -4
+ 302:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 484              		.loc 1 302 3 view .LVU96
+ 302:Core/Src/main.c ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 485              		.loc 1 302 18 is_stmt 0 view .LVU97
+ 486 0002 0D48     		ldr	r0, .L45
+ 487 0004 0D4B     		ldr	r3, .L45+4
+ 488 0006 0360     		str	r3, [r0]
+ 303:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 489              		.loc 1 303 3 is_stmt 1 view .LVU98
+ 303:Core/Src/main.c ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 490              		.loc 1 303 19 is_stmt 0 view .LVU99
+ 491 0008 4FF48273 		mov	r3, #260
+ 492 000c 4360     		str	r3, [r0, #4]
+ 304:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 493              		.loc 1 304 3 is_stmt 1 view .LVU100
+ 304:Core/Src/main.c ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 494              		.loc 1 304 24 is_stmt 0 view .LVU101
+ 495 000e 0023     		movs	r3, #0
+ 496 0010 8360     		str	r3, [r0, #8]
+ 305:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 497              		.loc 1 305 3 is_stmt 1 view .LVU102
+ 305:Core/Src/main.c ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+ 498              		.loc 1 305 23 is_stmt 0 view .LVU103
+ 499 0012 C360     		str	r3, [r0, #12]
+ 306:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 500              		.loc 1 306 3 is_stmt 1 view .LVU104
+ 306:Core/Src/main.c ****   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+ 501              		.loc 1 306 26 is_stmt 0 view .LVU105
+ 502 0014 0361     		str	r3, [r0, #16]
+ 307:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 503              		.loc 1 307 3 is_stmt 1 view .LVU106
+ 307:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 504              		.loc 1 307 23 is_stmt 0 view .LVU107
+ 505 0016 4361     		str	r3, [r0, #20]
+ 308:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+ 506              		.loc 1 308 3 is_stmt 1 view .LVU108
+ 308:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+ 507              		.loc 1 308 18 is_stmt 0 view .LVU109
+ 508 0018 4FF40072 		mov	r2, #512
+ 509 001c 8261     		str	r2, [r0, #24]
+ 309:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 510              		.loc 1 309 3 is_stmt 1 view .LVU110
+ 309:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 22
 
 
- 308:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
- 476              		.loc 1 308 3 is_stmt 1 view .LVU99
- 308:Core/Src/main.c ****   hspi1.Init.NSS = SPI_NSS_SOFT;
- 477              		.loc 1 308 23 is_stmt 0 view .LVU100
- 478 0016 4361     		str	r3, [r0, #20]
- 309:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
- 479              		.loc 1 309 3 is_stmt 1 view .LVU101
- 309:Core/Src/main.c ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
- 480              		.loc 1 309 18 is_stmt 0 view .LVU102
- 481 0018 4FF40072 		mov	r2, #512
- 482 001c 8261     		str	r2, [r0, #24]
- 310:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 483              		.loc 1 310 3 is_stmt 1 view .LVU103
- 310:Core/Src/main.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
- 484              		.loc 1 310 32 is_stmt 0 view .LVU104
- 485 001e C361     		str	r3, [r0, #28]
- 311:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
- 486              		.loc 1 311 3 is_stmt 1 view .LVU105
- 311:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
- 487              		.loc 1 311 23 is_stmt 0 view .LVU106
- 488 0020 0362     		str	r3, [r0, #32]
- 312:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 489              		.loc 1 312 3 is_stmt 1 view .LVU107
- 312:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
- 490              		.loc 1 312 21 is_stmt 0 view .LVU108
- 491 0022 4362     		str	r3, [r0, #36]
- 313:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
- 492              		.loc 1 313 3 is_stmt 1 view .LVU109
- 313:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
- 493              		.loc 1 313 29 is_stmt 0 view .LVU110
- 494 0024 8362     		str	r3, [r0, #40]
- 314:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
- 495              		.loc 1 314 3 is_stmt 1 view .LVU111
- 314:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
- 496              		.loc 1 314 28 is_stmt 0 view .LVU112
- 497 0026 0A23     		movs	r3, #10
- 498 0028 C362     		str	r3, [r0, #44]
- 315:Core/Src/main.c ****   {
- 499              		.loc 1 315 3 is_stmt 1 view .LVU113
- 315:Core/Src/main.c ****   {
- 500              		.loc 1 315 7 is_stmt 0 view .LVU114
- 501 002a FFF7FEFF 		bl	HAL_SPI_Init
- 502              	.LVL25:
- 315:Core/Src/main.c ****   {
- 503              		.loc 1 315 6 view .LVU115
- 504 002e 00B9     		cbnz	r0, .L41
- 323:Core/Src/main.c **** 
- 505              		.loc 1 323 1 view .LVU116
- 506 0030 08BD     		pop	{r3, pc}
- 507              	.L41:
- 317:Core/Src/main.c ****   }
- 508              		.loc 1 317 5 is_stmt 1 view .LVU117
- 509 0032 FFF7FEFF 		bl	Error_Handler
- 510              	.LVL26:
- 511              	.L43:
- 512 0036 00BF     		.align	2
- 513              	.L42:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 22
+ 511              		.loc 1 309 32 is_stmt 0 view .LVU111
+ 512 001e C361     		str	r3, [r0, #28]
+ 310:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 513              		.loc 1 310 3 is_stmt 1 view .LVU112
+ 310:Core/Src/main.c ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 514              		.loc 1 310 23 is_stmt 0 view .LVU113
+ 515 0020 0362     		str	r3, [r0, #32]
+ 311:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 516              		.loc 1 311 3 is_stmt 1 view .LVU114
+ 311:Core/Src/main.c ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 517              		.loc 1 311 21 is_stmt 0 view .LVU115
+ 518 0022 4362     		str	r3, [r0, #36]
+ 312:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
+ 519              		.loc 1 312 3 is_stmt 1 view .LVU116
+ 312:Core/Src/main.c ****   hspi1.Init.CRCPolynomial = 10;
+ 520              		.loc 1 312 29 is_stmt 0 view .LVU117
+ 521 0024 8362     		str	r3, [r0, #40]
+ 313:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 522              		.loc 1 313 3 is_stmt 1 view .LVU118
+ 313:Core/Src/main.c ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 523              		.loc 1 313 28 is_stmt 0 view .LVU119
+ 524 0026 0A23     		movs	r3, #10
+ 525 0028 C362     		str	r3, [r0, #44]
+ 314:Core/Src/main.c ****   {
+ 526              		.loc 1 314 3 is_stmt 1 view .LVU120
+ 314:Core/Src/main.c ****   {
+ 527              		.loc 1 314 7 is_stmt 0 view .LVU121
+ 528 002a FFF7FEFF 		bl	HAL_SPI_Init
+ 529              	.LVL30:
+ 314:Core/Src/main.c ****   {
+ 530              		.loc 1 314 6 view .LVU122
+ 531 002e 00B9     		cbnz	r0, .L44
+ 322:Core/Src/main.c **** 
+ 532              		.loc 1 322 1 view .LVU123
+ 533 0030 08BD     		pop	{r3, pc}
+ 534              	.L44:
+ 316:Core/Src/main.c ****   }
+ 535              		.loc 1 316 5 is_stmt 1 view .LVU124
+ 536 0032 FFF7FEFF 		bl	Error_Handler
+ 537              	.LVL31:
+ 538              	.L46:
+ 539 0036 00BF     		.align	2
+ 540              	.L45:
+ 541 0038 00000000 		.word	.LANCHOR3
+ 542 003c 00300140 		.word	1073819648
+ 543              		.cfi_endproc
+ 544              	.LFE76:
+ 546              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
+ 547              		.align	1
+ 548              		.syntax unified
+ 549              		.thumb
+ 550              		.thumb_func
+ 552              	MX_USART1_UART_Init:
+ 553              	.LFB77:
+ 330:Core/Src/main.c **** 
+ 554              		.loc 1 330 1 view -0
+ 555              		.cfi_startproc
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 23
 
 
- 514 0038 00000000 		.word	.LANCHOR2
- 515 003c 00300140 		.word	1073819648
- 516              		.cfi_endproc
- 517              	.LFE76:
- 519              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
- 520              		.align	1
- 521              		.syntax unified
- 522              		.thumb
- 523              		.thumb_func
- 525              	MX_USART1_UART_Init:
- 526              	.LFB77:
- 331:Core/Src/main.c **** 
- 527              		.loc 1 331 1 view -0
- 528              		.cfi_startproc
- 529              		@ args = 0, pretend = 0, frame = 0
- 530              		@ frame_needed = 0, uses_anonymous_args = 0
- 531 0000 08B5     		push	{r3, lr}
- 532              	.LCFI15:
- 533              		.cfi_def_cfa_offset 8
- 534              		.cfi_offset 3, -8
- 535              		.cfi_offset 14, -4
- 340:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
- 536              		.loc 1 340 3 view .LVU119
- 340:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
- 537              		.loc 1 340 19 is_stmt 0 view .LVU120
- 538 0002 0A48     		ldr	r0, .L48
- 539 0004 0A4B     		ldr	r3, .L48+4
- 540 0006 0360     		str	r3, [r0]
- 341:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
- 541              		.loc 1 341 3 is_stmt 1 view .LVU121
- 341:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
- 542              		.loc 1 341 24 is_stmt 0 view .LVU122
- 543 0008 4FF4E133 		mov	r3, #115200
- 544 000c 4360     		str	r3, [r0, #4]
- 342:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
- 545              		.loc 1 342 3 is_stmt 1 view .LVU123
- 342:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
- 546              		.loc 1 342 26 is_stmt 0 view .LVU124
- 547 000e 0023     		movs	r3, #0
- 548 0010 8360     		str	r3, [r0, #8]
- 343:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
- 549              		.loc 1 343 3 is_stmt 1 view .LVU125
- 343:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
- 550              		.loc 1 343 24 is_stmt 0 view .LVU126
- 551 0012 C360     		str	r3, [r0, #12]
- 344:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
- 552              		.loc 1 344 3 is_stmt 1 view .LVU127
- 344:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
- 553              		.loc 1 344 22 is_stmt 0 view .LVU128
- 554 0014 0361     		str	r3, [r0, #16]
- 345:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 555              		.loc 1 345 3 is_stmt 1 view .LVU129
- 345:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
- 556              		.loc 1 345 20 is_stmt 0 view .LVU130
- 557 0016 0C22     		movs	r2, #12
- 558 0018 4261     		str	r2, [r0, #20]
- 346:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 23
+ 556              		@ args = 0, pretend = 0, frame = 0
+ 557              		@ frame_needed = 0, uses_anonymous_args = 0
+ 558 0000 08B5     		push	{r3, lr}
+ 559              	.LCFI14:
+ 560              		.cfi_def_cfa_offset 8
+ 561              		.cfi_offset 3, -8
+ 562              		.cfi_offset 14, -4
+ 339:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
+ 563              		.loc 1 339 3 view .LVU126
+ 339:Core/Src/main.c ****   huart1.Init.BaudRate = 115200;
+ 564              		.loc 1 339 19 is_stmt 0 view .LVU127
+ 565 0002 0A48     		ldr	r0, .L51
+ 566 0004 0A4B     		ldr	r3, .L51+4
+ 567 0006 0360     		str	r3, [r0]
+ 340:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 568              		.loc 1 340 3 is_stmt 1 view .LVU128
+ 340:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
+ 569              		.loc 1 340 24 is_stmt 0 view .LVU129
+ 570 0008 4FF4E133 		mov	r3, #115200
+ 571 000c 4360     		str	r3, [r0, #4]
+ 341:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 572              		.loc 1 341 3 is_stmt 1 view .LVU130
+ 341:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
+ 573              		.loc 1 341 26 is_stmt 0 view .LVU131
+ 574 000e 0023     		movs	r3, #0
+ 575 0010 8360     		str	r3, [r0, #8]
+ 342:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 576              		.loc 1 342 3 is_stmt 1 view .LVU132
+ 342:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
+ 577              		.loc 1 342 24 is_stmt 0 view .LVU133
+ 578 0012 C360     		str	r3, [r0, #12]
+ 343:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 579              		.loc 1 343 3 is_stmt 1 view .LVU134
+ 343:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
+ 580              		.loc 1 343 22 is_stmt 0 view .LVU135
+ 581 0014 0361     		str	r3, [r0, #16]
+ 344:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 582              		.loc 1 344 3 is_stmt 1 view .LVU136
+ 344:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 583              		.loc 1 344 20 is_stmt 0 view .LVU137
+ 584 0016 0C22     		movs	r2, #12
+ 585 0018 4261     		str	r2, [r0, #20]
+ 345:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 586              		.loc 1 345 3 is_stmt 1 view .LVU138
+ 345:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+ 587              		.loc 1 345 25 is_stmt 0 view .LVU139
+ 588 001a 8361     		str	r3, [r0, #24]
+ 346:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
+ 589              		.loc 1 346 3 is_stmt 1 view .LVU140
+ 346:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
+ 590              		.loc 1 346 28 is_stmt 0 view .LVU141
+ 591 001c C361     		str	r3, [r0, #28]
+ 347:Core/Src/main.c ****   {
+ 592              		.loc 1 347 3 is_stmt 1 view .LVU142
+ 347:Core/Src/main.c ****   {
+ 593              		.loc 1 347 7 is_stmt 0 view .LVU143
+ 594 001e FFF7FEFF 		bl	HAL_UART_Init
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 24
 
 
- 559              		.loc 1 346 3 is_stmt 1 view .LVU131
- 346:Core/Src/main.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
- 560              		.loc 1 346 25 is_stmt 0 view .LVU132
- 561 001a 8361     		str	r3, [r0, #24]
- 347:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
- 562              		.loc 1 347 3 is_stmt 1 view .LVU133
- 347:Core/Src/main.c ****   if (HAL_UART_Init(&huart1) != HAL_OK)
- 563              		.loc 1 347 28 is_stmt 0 view .LVU134
- 564 001c C361     		str	r3, [r0, #28]
- 348:Core/Src/main.c ****   {
- 565              		.loc 1 348 3 is_stmt 1 view .LVU135
- 348:Core/Src/main.c ****   {
- 566              		.loc 1 348 7 is_stmt 0 view .LVU136
- 567 001e FFF7FEFF 		bl	HAL_UART_Init
- 568              	.LVL27:
- 348:Core/Src/main.c ****   {
- 569              		.loc 1 348 6 view .LVU137
- 570 0022 00B9     		cbnz	r0, .L47
- 356:Core/Src/main.c **** 
- 571              		.loc 1 356 1 view .LVU138
- 572 0024 08BD     		pop	{r3, pc}
- 573              	.L47:
- 350:Core/Src/main.c ****   }
- 574              		.loc 1 350 5 is_stmt 1 view .LVU139
- 575 0026 FFF7FEFF 		bl	Error_Handler
- 576              	.LVL28:
- 577              	.L49:
- 578 002a 00BF     		.align	2
- 579              	.L48:
- 580 002c 00000000 		.word	.LANCHOR3
- 581 0030 00380140 		.word	1073821696
- 582              		.cfi_endproc
- 583              	.LFE77:
- 585              		.section	.text.SystemClock_Config,"ax",%progbits
- 586              		.align	1
- 587              		.global	SystemClock_Config
- 588              		.syntax unified
- 589              		.thumb
- 590              		.thumb_func
- 592              	SystemClock_Config:
- 593              	.LFB74:
- 205:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 594              		.loc 1 205 1 view -0
- 595              		.cfi_startproc
- 596              		@ args = 0, pretend = 0, frame = 80
- 597              		@ frame_needed = 0, uses_anonymous_args = 0
- 598 0000 00B5     		push	{lr}
- 599              	.LCFI16:
- 600              		.cfi_def_cfa_offset 4
- 601              		.cfi_offset 14, -4
- 602 0002 95B0     		sub	sp, sp, #84
- 603              	.LCFI17:
- 604              		.cfi_def_cfa_offset 88
- 206:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 605              		.loc 1 206 3 view .LVU141
- 206:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 606              		.loc 1 206 22 is_stmt 0 view .LVU142
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 24
+ 595              	.LVL32:
+ 347:Core/Src/main.c ****   {
+ 596              		.loc 1 347 6 view .LVU144
+ 597 0022 00B9     		cbnz	r0, .L50
+ 355:Core/Src/main.c **** 
+ 598              		.loc 1 355 1 view .LVU145
+ 599 0024 08BD     		pop	{r3, pc}
+ 600              	.L50:
+ 349:Core/Src/main.c ****   }
+ 601              		.loc 1 349 5 is_stmt 1 view .LVU146
+ 602 0026 FFF7FEFF 		bl	Error_Handler
+ 603              	.LVL33:
+ 604              	.L52:
+ 605 002a 00BF     		.align	2
+ 606              	.L51:
+ 607 002c 00000000 		.word	.LANCHOR4
+ 608 0030 00380140 		.word	1073821696
+ 609              		.cfi_endproc
+ 610              	.LFE77:
+ 612              		.section	.text.SystemClock_Config,"ax",%progbits
+ 613              		.align	1
+ 614              		.global	SystemClock_Config
+ 615              		.syntax unified
+ 616              		.thumb
+ 617              		.thumb_func
+ 619              	SystemClock_Config:
+ 620              	.LFB74:
+ 204:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 621              		.loc 1 204 1 view -0
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 80
+ 624              		@ frame_needed = 0, uses_anonymous_args = 0
+ 625 0000 00B5     		push	{lr}
+ 626              	.LCFI15:
+ 627              		.cfi_def_cfa_offset 4
+ 628              		.cfi_offset 14, -4
+ 629 0002 95B0     		sub	sp, sp, #84
+ 630              	.LCFI16:
+ 631              		.cfi_def_cfa_offset 88
+ 205:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 632              		.loc 1 205 3 view .LVU148
+ 205:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 633              		.loc 1 205 22 is_stmt 0 view .LVU149
+ 634 0004 2822     		movs	r2, #40
+ 635 0006 0021     		movs	r1, #0
+ 636 0008 0DEB0200 		add	r0, sp, r2
+ 637 000c FFF7FEFF 		bl	memset
+ 638              	.LVL34:
+ 206:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 639              		.loc 1 206 3 is_stmt 1 view .LVU150
+ 206:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+ 640              		.loc 1 206 22 is_stmt 0 view .LVU151
+ 641 0010 0023     		movs	r3, #0
+ 642 0012 0593     		str	r3, [sp, #20]
+ 643 0014 0693     		str	r3, [sp, #24]
+ 644 0016 0793     		str	r3, [sp, #28]
+ 645 0018 0893     		str	r3, [sp, #32]
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 25
 
 
- 607 0004 2822     		movs	r2, #40
- 608 0006 0021     		movs	r1, #0
- 609 0008 0DEB0200 		add	r0, sp, r2
- 610 000c FFF7FEFF 		bl	memset
- 611              	.LVL29:
- 207:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
- 612              		.loc 1 207 3 is_stmt 1 view .LVU143
- 207:Core/Src/main.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
- 613              		.loc 1 207 22 is_stmt 0 view .LVU144
- 614 0010 0023     		movs	r3, #0
- 615 0012 0593     		str	r3, [sp, #20]
- 616 0014 0693     		str	r3, [sp, #24]
- 617 0016 0793     		str	r3, [sp, #28]
- 618 0018 0893     		str	r3, [sp, #32]
- 619 001a 0993     		str	r3, [sp, #36]
- 208:Core/Src/main.c **** 
- 620              		.loc 1 208 3 is_stmt 1 view .LVU145
- 208:Core/Src/main.c **** 
- 621              		.loc 1 208 28 is_stmt 0 view .LVU146
- 622 001c 0193     		str	r3, [sp, #4]
- 623 001e 0293     		str	r3, [sp, #8]
- 624 0020 0393     		str	r3, [sp, #12]
- 625 0022 0493     		str	r3, [sp, #16]
- 213:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 626              		.loc 1 213 3 is_stmt 1 view .LVU147
- 213:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 627              		.loc 1 213 36 is_stmt 0 view .LVU148
- 628 0024 0223     		movs	r3, #2
- 629 0026 0A93     		str	r3, [sp, #40]
- 214:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 630              		.loc 1 214 3 is_stmt 1 view .LVU149
- 214:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 631              		.loc 1 214 30 is_stmt 0 view .LVU150
- 632 0028 0123     		movs	r3, #1
- 633 002a 0E93     		str	r3, [sp, #56]
- 215:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 634              		.loc 1 215 3 is_stmt 1 view .LVU151
- 215:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 635              		.loc 1 215 41 is_stmt 0 view .LVU152
- 636 002c 1023     		movs	r3, #16
- 637 002e 0F93     		str	r3, [sp, #60]
- 216:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 638              		.loc 1 216 3 is_stmt 1 view .LVU153
- 217:Core/Src/main.c ****   {
- 639              		.loc 1 217 3 view .LVU154
- 217:Core/Src/main.c ****   {
- 640              		.loc 1 217 7 is_stmt 0 view .LVU155
- 641 0030 0AA8     		add	r0, sp, #40
- 642 0032 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 643              	.LVL30:
- 217:Core/Src/main.c ****   {
- 644              		.loc 1 217 6 view .LVU156
- 645 0036 A8B9     		cbnz	r0, .L55
- 223:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 646              		.loc 1 223 3 is_stmt 1 view .LVU157
- 223:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 647              		.loc 1 223 31 is_stmt 0 view .LVU158
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 25
+ 646 001a 0993     		str	r3, [sp, #36]
+ 207:Core/Src/main.c **** 
+ 647              		.loc 1 207 3 is_stmt 1 view .LVU152
+ 207:Core/Src/main.c **** 
+ 648              		.loc 1 207 28 is_stmt 0 view .LVU153
+ 649 001c 0193     		str	r3, [sp, #4]
+ 650 001e 0293     		str	r3, [sp, #8]
+ 651 0020 0393     		str	r3, [sp, #12]
+ 652 0022 0493     		str	r3, [sp, #16]
+ 212:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 653              		.loc 1 212 3 is_stmt 1 view .LVU154
+ 212:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 654              		.loc 1 212 36 is_stmt 0 view .LVU155
+ 655 0024 0223     		movs	r3, #2
+ 656 0026 0A93     		str	r3, [sp, #40]
+ 213:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 657              		.loc 1 213 3 is_stmt 1 view .LVU156
+ 213:Core/Src/main.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 658              		.loc 1 213 30 is_stmt 0 view .LVU157
+ 659 0028 0123     		movs	r3, #1
+ 660 002a 0E93     		str	r3, [sp, #56]
+ 214:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 661              		.loc 1 214 3 is_stmt 1 view .LVU158
+ 214:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+ 662              		.loc 1 214 41 is_stmt 0 view .LVU159
+ 663 002c 1023     		movs	r3, #16
+ 664 002e 0F93     		str	r3, [sp, #60]
+ 215:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 665              		.loc 1 215 3 is_stmt 1 view .LVU160
+ 216:Core/Src/main.c ****   {
+ 666              		.loc 1 216 3 view .LVU161
+ 216:Core/Src/main.c ****   {
+ 667              		.loc 1 216 7 is_stmt 0 view .LVU162
+ 668 0030 0AA8     		add	r0, sp, #40
+ 669 0032 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 670              	.LVL35:
+ 216:Core/Src/main.c ****   {
+ 671              		.loc 1 216 6 view .LVU163
+ 672 0036 A8B9     		cbnz	r0, .L58
+ 222:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 673              		.loc 1 222 3 is_stmt 1 view .LVU164
+ 222:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 674              		.loc 1 222 31 is_stmt 0 view .LVU165
+ 675 0038 0F23     		movs	r3, #15
+ 676 003a 0593     		str	r3, [sp, #20]
+ 224:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 677              		.loc 1 224 3 is_stmt 1 view .LVU166
+ 224:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 678              		.loc 1 224 34 is_stmt 0 view .LVU167
+ 679 003c 0021     		movs	r1, #0
+ 680 003e 0691     		str	r1, [sp, #24]
+ 225:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 681              		.loc 1 225 3 is_stmt 1 view .LVU168
+ 225:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 682              		.loc 1 225 35 is_stmt 0 view .LVU169
+ 683 0040 0791     		str	r1, [sp, #28]
+ 226:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 26
 
 
- 648 0038 0F23     		movs	r3, #15
- 649 003a 0593     		str	r3, [sp, #20]
- 225:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 650              		.loc 1 225 3 is_stmt 1 view .LVU159
- 225:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 651              		.loc 1 225 34 is_stmt 0 view .LVU160
- 652 003c 0021     		movs	r1, #0
- 653 003e 0691     		str	r1, [sp, #24]
- 226:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 654              		.loc 1 226 3 is_stmt 1 view .LVU161
- 226:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 655              		.loc 1 226 35 is_stmt 0 view .LVU162
- 656 0040 0791     		str	r1, [sp, #28]
- 227:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 657              		.loc 1 227 3 is_stmt 1 view .LVU163
- 227:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 658              		.loc 1 227 36 is_stmt 0 view .LVU164
- 659 0042 0891     		str	r1, [sp, #32]
- 228:Core/Src/main.c **** 
- 660              		.loc 1 228 3 is_stmt 1 view .LVU165
- 228:Core/Src/main.c **** 
- 661              		.loc 1 228 36 is_stmt 0 view .LVU166
- 662 0044 0991     		str	r1, [sp, #36]
- 230:Core/Src/main.c ****   {
- 663              		.loc 1 230 3 is_stmt 1 view .LVU167
- 230:Core/Src/main.c ****   {
- 664              		.loc 1 230 7 is_stmt 0 view .LVU168
- 665 0046 05A8     		add	r0, sp, #20
- 666 0048 FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 667              	.LVL31:
- 230:Core/Src/main.c ****   {
- 668              		.loc 1 230 6 view .LVU169
- 669 004c 60B9     		cbnz	r0, .L56
- 234:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
- 670              		.loc 1 234 3 is_stmt 1 view .LVU170
- 234:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
- 671              		.loc 1 234 38 is_stmt 0 view .LVU171
- 672 004e 0223     		movs	r3, #2
- 673 0050 0193     		str	r3, [sp, #4]
- 235:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
- 674              		.loc 1 235 3 is_stmt 1 view .LVU172
- 235:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
- 675              		.loc 1 235 35 is_stmt 0 view .LVU173
- 676 0052 0023     		movs	r3, #0
- 677 0054 0393     		str	r3, [sp, #12]
- 236:Core/Src/main.c ****   {
- 678              		.loc 1 236 3 is_stmt 1 view .LVU174
- 236:Core/Src/main.c ****   {
- 679              		.loc 1 236 7 is_stmt 0 view .LVU175
- 680 0056 01A8     		add	r0, sp, #4
- 681 0058 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
- 682              	.LVL32:
- 236:Core/Src/main.c ****   {
- 683              		.loc 1 236 6 view .LVU176
- 684 005c 30B9     		cbnz	r0, .L57
- 240:Core/Src/main.c **** 
- 685              		.loc 1 240 1 view .LVU177
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 26
+ 684              		.loc 1 226 3 is_stmt 1 view .LVU170
+ 226:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 685              		.loc 1 226 36 is_stmt 0 view .LVU171
+ 686 0042 0891     		str	r1, [sp, #32]
+ 227:Core/Src/main.c **** 
+ 687              		.loc 1 227 3 is_stmt 1 view .LVU172
+ 227:Core/Src/main.c **** 
+ 688              		.loc 1 227 36 is_stmt 0 view .LVU173
+ 689 0044 0991     		str	r1, [sp, #36]
+ 229:Core/Src/main.c ****   {
+ 690              		.loc 1 229 3 is_stmt 1 view .LVU174
+ 229:Core/Src/main.c ****   {
+ 691              		.loc 1 229 7 is_stmt 0 view .LVU175
+ 692 0046 05A8     		add	r0, sp, #20
+ 693 0048 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 694              	.LVL36:
+ 229:Core/Src/main.c ****   {
+ 695              		.loc 1 229 6 view .LVU176
+ 696 004c 60B9     		cbnz	r0, .L59
+ 233:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+ 697              		.loc 1 233 3 is_stmt 1 view .LVU177
+ 233:Core/Src/main.c ****   PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+ 698              		.loc 1 233 38 is_stmt 0 view .LVU178
+ 699 004e 0223     		movs	r3, #2
+ 700 0050 0193     		str	r3, [sp, #4]
+ 234:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 701              		.loc 1 234 3 is_stmt 1 view .LVU179
+ 234:Core/Src/main.c ****   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+ 702              		.loc 1 234 35 is_stmt 0 view .LVU180
+ 703 0052 0023     		movs	r3, #0
+ 704 0054 0393     		str	r3, [sp, #12]
+ 235:Core/Src/main.c ****   {
+ 705              		.loc 1 235 3 is_stmt 1 view .LVU181
+ 235:Core/Src/main.c ****   {
+ 706              		.loc 1 235 7 is_stmt 0 view .LVU182
+ 707 0056 01A8     		add	r0, sp, #4
+ 708 0058 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+ 709              	.LVL37:
+ 235:Core/Src/main.c ****   {
+ 710              		.loc 1 235 6 view .LVU183
+ 711 005c 30B9     		cbnz	r0, .L60
+ 239:Core/Src/main.c **** 
+ 712              		.loc 1 239 1 view .LVU184
+ 713 005e 15B0     		add	sp, sp, #84
+ 714              	.LCFI17:
+ 715              		.cfi_remember_state
+ 716              		.cfi_def_cfa_offset 4
+ 717              		@ sp needed
+ 718 0060 5DF804FB 		ldr	pc, [sp], #4
+ 719              	.L58:
+ 720              	.LCFI18:
+ 721              		.cfi_restore_state
+ 218:Core/Src/main.c ****   }
+ 722              		.loc 1 218 5 is_stmt 1 view .LVU185
+ 723 0064 FFF7FEFF 		bl	Error_Handler
+ 724              	.LVL38:
+ 725              	.L59:
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 27
 
 
- 686 005e 15B0     		add	sp, sp, #84
- 687              	.LCFI18:
- 688              		.cfi_remember_state
- 689              		.cfi_def_cfa_offset 4
- 690              		@ sp needed
- 691 0060 5DF804FB 		ldr	pc, [sp], #4
- 692              	.L55:
- 693              	.LCFI19:
- 694              		.cfi_restore_state
- 219:Core/Src/main.c ****   }
- 695              		.loc 1 219 5 is_stmt 1 view .LVU178
- 696 0064 FFF7FEFF 		bl	Error_Handler
- 697              	.LVL33:
- 698              	.L56:
- 232:Core/Src/main.c ****   }
- 699              		.loc 1 232 5 view .LVU179
- 700 0068 FFF7FEFF 		bl	Error_Handler
- 701              	.LVL34:
- 702              	.L57:
- 238:Core/Src/main.c ****   }
- 703              		.loc 1 238 5 view .LVU180
- 704 006c FFF7FEFF 		bl	Error_Handler
- 705              	.LVL35:
- 706              		.cfi_endproc
- 707              	.LFE74:
- 709              		.section	.text.main,"ax",%progbits
- 710              		.align	1
- 711              		.global	main
- 712              		.syntax unified
- 713              		.thumb
- 714              		.thumb_func
- 716              	main:
- 717              	.LFB73:
+ 231:Core/Src/main.c ****   }
+ 726              		.loc 1 231 5 view .LVU186
+ 727 0068 FFF7FEFF 		bl	Error_Handler
+ 728              	.LVL39:
+ 729              	.L60:
+ 237:Core/Src/main.c ****   }
+ 730              		.loc 1 237 5 view .LVU187
+ 731 006c FFF7FEFF 		bl	Error_Handler
+ 732              	.LVL40:
+ 733              		.cfi_endproc
+ 734              	.LFE74:
+ 736              		.section	.text.main,"ax",%progbits
+ 737              		.align	1
+ 738              		.global	main
+ 739              		.syntax unified
+ 740              		.thumb
+ 741              		.thumb_func
+ 743              	main:
+ 744              	.LFB73:
  115:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
- 718              		.loc 1 115 1 view -0
- 719              		.cfi_startproc
- 720              		@ Volatile: function does not return.
- 721              		@ args = 0, pretend = 0, frame = 0
- 722              		@ frame_needed = 0, uses_anonymous_args = 0
- 723 0000 08B5     		push	{r3, lr}
- 724              	.LCFI20:
- 725              		.cfi_def_cfa_offset 8
- 726              		.cfi_offset 3, -8
- 727              		.cfi_offset 14, -4
- 123:Core/Src/main.c **** 
- 728              		.loc 1 123 3 view .LVU182
- 729 0002 FFF7FEFF 		bl	HAL_Init
- 730              	.LVL36:
- 130:Core/Src/main.c **** 
- 731              		.loc 1 130 3 view .LVU183
- 732 0006 FFF7FEFF 		bl	SystemClock_Config
- 733              	.LVL37:
- 137:Core/Src/main.c ****   MX_ADC1_Init();
- 734              		.loc 1 137 3 view .LVU184
- 735 000a FFF7FEFF 		bl	MX_GPIO_Init
- 736              	.LVL38:
- 138:Core/Src/main.c ****   MX_SPI1_Init();
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 27
+ 745              		.loc 1 115 1 view -0
+ 746              		.cfi_startproc
+ 747              		@ Volatile: function does not return.
+ 748              		@ args = 0, pretend = 0, frame = 0
+ 749              		@ frame_needed = 0, uses_anonymous_args = 0
+ 750 0000 08B5     		push	{r3, lr}
+ 751              	.LCFI19:
+ 752              		.cfi_def_cfa_offset 8
+ 753              		.cfi_offset 3, -8
+ 754              		.cfi_offset 14, -4
+ 122:Core/Src/main.c **** 
+ 755              		.loc 1 122 3 view .LVU189
+ 756 0002 FFF7FEFF 		bl	HAL_Init
+ 757              	.LVL41:
+ 129:Core/Src/main.c **** 
+ 758              		.loc 1 129 3 view .LVU190
+ 759 0006 FFF7FEFF 		bl	SystemClock_Config
+ 760              	.LVL42:
+ 136:Core/Src/main.c ****   MX_ADC1_Init();
+ 761              		.loc 1 136 3 view .LVU191
+ 762 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 763              	.LVL43:
+ 137:Core/Src/main.c ****   MX_SPI1_Init();
+ 764              		.loc 1 137 3 view .LVU192
+ 765 000e FFF7FEFF 		bl	MX_ADC1_Init
+ 766              	.LVL44:
+ 138:Core/Src/main.c ****   MX_USART1_UART_Init();
+ 767              		.loc 1 138 3 view .LVU193
+ 768 0012 FFF7FEFF 		bl	MX_SPI1_Init
+ 769              	.LVL45:
+ 139:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
+ 770              		.loc 1 139 3 view .LVU194
+ 771 0016 FFF7FEFF 		bl	MX_USART1_UART_Init
+ 772              	.LVL46:
+ 145:Core/Src/main.c **** 
+ 773              		.loc 1 145 3 view .LVU195
+ 774 001a FFF7FEFF 		bl	osKernelInitialize
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 28
 
 
- 737              		.loc 1 138 3 view .LVU185
- 738 000e FFF7FEFF 		bl	MX_ADC1_Init
- 739              	.LVL39:
- 139:Core/Src/main.c ****   MX_USART1_UART_Init();
- 740              		.loc 1 139 3 view .LVU186
- 741 0012 FFF7FEFF 		bl	MX_SPI1_Init
- 742              	.LVL40:
- 140:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 743              		.loc 1 140 3 view .LVU187
- 744 0016 FFF7FEFF 		bl	MX_USART1_UART_Init
- 745              	.LVL41:
- 146:Core/Src/main.c **** 
- 746              		.loc 1 146 3 view .LVU188
- 747 001a FFF7FEFF 		bl	osKernelInitialize
- 748              	.LVL42:
- 166:Core/Src/main.c **** 
- 749              		.loc 1 166 3 view .LVU189
- 166:Core/Src/main.c **** 
- 750              		.loc 1 166 23 is_stmt 0 view .LVU190
- 751 001e 0F4A     		ldr	r2, .L61
- 752 0020 0021     		movs	r1, #0
- 753 0022 0F48     		ldr	r0, .L61+4
- 754 0024 FFF7FEFF 		bl	osThreadNew
- 755              	.LVL43:
- 166:Core/Src/main.c **** 
- 756              		.loc 1 166 21 view .LVU191
- 757 0028 0E4B     		ldr	r3, .L61+8
- 758 002a 1860     		str	r0, [r3]
- 169:Core/Src/main.c **** 
- 759              		.loc 1 169 3 is_stmt 1 view .LVU192
- 169:Core/Src/main.c **** 
- 760              		.loc 1 169 23 is_stmt 0 view .LVU193
- 761 002c 0E4A     		ldr	r2, .L61+12
- 762 002e 0021     		movs	r1, #0
- 763 0030 0E48     		ldr	r0, .L61+16
- 764 0032 FFF7FEFF 		bl	osThreadNew
- 765              	.LVL44:
- 169:Core/Src/main.c **** 
- 766              		.loc 1 169 21 view .LVU194
- 767 0036 0E4B     		ldr	r3, .L61+20
- 768 0038 1860     		str	r0, [r3]
- 172:Core/Src/main.c **** 
- 769              		.loc 1 172 3 is_stmt 1 view .LVU195
- 172:Core/Src/main.c **** 
- 770              		.loc 1 172 21 is_stmt 0 view .LVU196
- 771 003a 0E4A     		ldr	r2, .L61+24
- 772 003c 0021     		movs	r1, #0
- 773 003e 0E48     		ldr	r0, .L61+28
- 774 0040 FFF7FEFF 		bl	osThreadNew
- 775              	.LVL45:
- 172:Core/Src/main.c **** 
- 776              		.loc 1 172 19 view .LVU197
- 777 0044 0D4B     		ldr	r3, .L61+32
- 778 0046 1860     		str	r0, [r3]
- 175:Core/Src/main.c **** 
- 779              		.loc 1 175 3 is_stmt 1 view .LVU198
- 175:Core/Src/main.c **** 
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 28
+ 775              	.LVL47:
+ 165:Core/Src/main.c **** 
+ 776              		.loc 1 165 3 view .LVU196
+ 165:Core/Src/main.c **** 
+ 777              		.loc 1 165 23 is_stmt 0 view .LVU197
+ 778 001e 0F4A     		ldr	r2, .L64
+ 779 0020 0021     		movs	r1, #0
+ 780 0022 0F48     		ldr	r0, .L64+4
+ 781 0024 FFF7FEFF 		bl	osThreadNew
+ 782              	.LVL48:
+ 165:Core/Src/main.c **** 
+ 783              		.loc 1 165 21 view .LVU198
+ 784 0028 0E4B     		ldr	r3, .L64+8
+ 785 002a 1860     		str	r0, [r3]
+ 168:Core/Src/main.c **** 
+ 786              		.loc 1 168 3 is_stmt 1 view .LVU199
+ 168:Core/Src/main.c **** 
+ 787              		.loc 1 168 23 is_stmt 0 view .LVU200
+ 788 002c 0E4A     		ldr	r2, .L64+12
+ 789 002e 0021     		movs	r1, #0
+ 790 0030 0E48     		ldr	r0, .L64+16
+ 791 0032 FFF7FEFF 		bl	osThreadNew
+ 792              	.LVL49:
+ 168:Core/Src/main.c **** 
+ 793              		.loc 1 168 21 view .LVU201
+ 794 0036 0E4B     		ldr	r3, .L64+20
+ 795 0038 1860     		str	r0, [r3]
+ 171:Core/Src/main.c **** 
+ 796              		.loc 1 171 3 is_stmt 1 view .LVU202
+ 171:Core/Src/main.c **** 
+ 797              		.loc 1 171 21 is_stmt 0 view .LVU203
+ 798 003a 0E4A     		ldr	r2, .L64+24
+ 799 003c 0021     		movs	r1, #0
+ 800 003e 0E48     		ldr	r0, .L64+28
+ 801 0040 FFF7FEFF 		bl	osThreadNew
+ 802              	.LVL50:
+ 171:Core/Src/main.c **** 
+ 803              		.loc 1 171 19 view .LVU204
+ 804 0044 0D4B     		ldr	r3, .L64+32
+ 805 0046 1860     		str	r0, [r3]
+ 174:Core/Src/main.c **** 
+ 806              		.loc 1 174 3 is_stmt 1 view .LVU205
+ 174:Core/Src/main.c **** 
+ 807              		.loc 1 174 21 is_stmt 0 view .LVU206
+ 808 0048 0D4A     		ldr	r2, .L64+36
+ 809 004a 0021     		movs	r1, #0
+ 810 004c 0D48     		ldr	r0, .L64+40
+ 811 004e FFF7FEFF 		bl	osThreadNew
+ 812              	.LVL51:
+ 174:Core/Src/main.c **** 
+ 813              		.loc 1 174 19 view .LVU207
+ 814 0052 0D4B     		ldr	r3, .L64+44
+ 815 0054 1860     		str	r0, [r3]
+ 185:Core/Src/main.c **** 
+ 816              		.loc 1 185 3 is_stmt 1 view .LVU208
+ 817 0056 FFF7FEFF 		bl	osKernelStart
+ 818              	.LVL52:
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 29
 
 
- 780              		.loc 1 175 21 is_stmt 0 view .LVU199
- 781 0048 0D4A     		ldr	r2, .L61+36
- 782 004a 0021     		movs	r1, #0
- 783 004c 0D48     		ldr	r0, .L61+40
- 784 004e FFF7FEFF 		bl	osThreadNew
- 785              	.LVL46:
- 175:Core/Src/main.c **** 
- 786              		.loc 1 175 19 view .LVU200
- 787 0052 0D4B     		ldr	r3, .L61+44
- 788 0054 1860     		str	r0, [r3]
- 186:Core/Src/main.c **** 
- 789              		.loc 1 186 3 is_stmt 1 view .LVU201
- 790 0056 FFF7FEFF 		bl	osKernelStart
- 791              	.LVL47:
- 792              	.L59:
- 191:Core/Src/main.c ****   {
- 793              		.loc 1 191 3 discriminator 1 view .LVU202
- 196:Core/Src/main.c ****   /* USER CODE END 3 */
- 794              		.loc 1 196 3 discriminator 1 view .LVU203
- 191:Core/Src/main.c ****   {
- 795              		.loc 1 191 9 discriminator 1 view .LVU204
- 796 005a FEE7     		b	.L59
- 797              	.L62:
- 798              		.align	2
- 799              	.L61:
- 800 005c 00000000 		.word	.LANCHOR4
- 801 0060 00000000 		.word	StartDefaultTask
- 802 0064 00000000 		.word	.LANCHOR5
- 803 0068 00000000 		.word	.LANCHOR6
- 804 006c 00000000 		.word	StartESacle_Task
- 805 0070 00000000 		.word	.LANCHOR7
- 806 0074 00000000 		.word	.LANCHOR8
- 807 0078 00000000 		.word	StartUART_Task
- 808 007c 00000000 		.word	.LANCHOR9
- 809 0080 00000000 		.word	.LANCHOR10
- 810 0084 00000000 		.word	StartRFID_Task
- 811 0088 00000000 		.word	.LANCHOR11
- 812              		.cfi_endproc
- 813              	.LFE73:
- 815              		.global	u16_ADCVal
- 816              		.global	RFID_Task_attributes
- 817              		.section	.rodata.str1.4,"aMS",%progbits,1
- 818              		.align	2
- 819              	.LC0:
- 820 0000 52464944 		.ascii	"RFID_Task\000"
- 820      5F546173 
- 820      6B00
- 821              		.global	RFID_TaskHandle
- 822              		.global	UART_Task_attributes
- 823 000a 0000     		.align	2
- 824              	.LC1:
- 825 000c 55415254 		.ascii	"UART_Task\000"
- 825      5F546173 
- 825      6B00
- 826              		.global	UART_TaskHandle
- 827              		.global	EScale_Task_attributes
- 828 0016 0000     		.align	2
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 29
-
-
- 829              	.LC2:
- 830 0018 45536361 		.ascii	"EScale_Task\000"
- 830      6C655F54 
- 830      61736B00 
- 831              		.global	EScale_TaskHandle
- 832              		.global	defaultTask_attributes
- 833              		.align	2
- 834              	.LC3:
- 835 0024 64656661 		.ascii	"defaultTask\000"
- 835      756C7454 
- 835      61736B00 
- 836              		.global	defaultTaskHandle
- 837              		.global	huart1
- 838              		.global	hspi1
- 839              		.global	hadc1
- 840              		.section	.bss.EScale_TaskHandle,"aw",%nobits
- 841              		.align	2
- 842              		.set	.LANCHOR7,. + 0
- 845              	EScale_TaskHandle:
- 846 0000 00000000 		.space	4
- 847              		.section	.bss.RFID_TaskHandle,"aw",%nobits
+ 819              	.L62:
+ 190:Core/Src/main.c ****   {
+ 820              		.loc 1 190 3 discriminator 1 view .LVU209
+ 195:Core/Src/main.c ****   /* USER CODE END 3 */
+ 821              		.loc 1 195 3 discriminator 1 view .LVU210
+ 190:Core/Src/main.c ****   {
+ 822              		.loc 1 190 9 discriminator 1 view .LVU211
+ 823 005a FEE7     		b	.L62
+ 824              	.L65:
+ 825              		.align	2
+ 826              	.L64:
+ 827 005c 00000000 		.word	.LANCHOR5
+ 828 0060 00000000 		.word	StartDefaultTask
+ 829 0064 00000000 		.word	.LANCHOR6
+ 830 0068 00000000 		.word	.LANCHOR7
+ 831 006c 00000000 		.word	StartESacle_Task
+ 832 0070 00000000 		.word	.LANCHOR8
+ 833 0074 00000000 		.word	.LANCHOR9
+ 834 0078 00000000 		.word	StartUART_Task
+ 835 007c 00000000 		.word	.LANCHOR10
+ 836 0080 00000000 		.word	.LANCHOR11
+ 837 0084 00000000 		.word	StartRFID_Task
+ 838 0088 00000000 		.word	.LANCHOR12
+ 839              		.cfi_endproc
+ 840              	.LFE73:
+ 842              		.global	RFID_KEY
+ 843              		.global	UART_KEY
+ 844              		.global	ESCALE_KEY
+ 845              		.global	u16_ADCVal
+ 846              		.global	RFID_Task_attributes
+ 847              		.section	.rodata.str1.4,"aMS",%progbits,1
  848              		.align	2
- 849              		.set	.LANCHOR11,. + 0
- 852              	RFID_TaskHandle:
- 853 0000 00000000 		.space	4
- 854              		.section	.bss.UART_TaskHandle,"aw",%nobits
- 855              		.align	2
- 856              		.set	.LANCHOR9,. + 0
- 859              	UART_TaskHandle:
- 860 0000 00000000 		.space	4
- 861              		.section	.bss.defaultTaskHandle,"aw",%nobits
- 862              		.align	2
- 863              		.set	.LANCHOR5,. + 0
- 866              	defaultTaskHandle:
- 867 0000 00000000 		.space	4
- 868              		.section	.bss.hadc1,"aw",%nobits
- 869              		.align	2
- 870              		.set	.LANCHOR0,. + 0
- 873              	hadc1:
- 874 0000 00000000 		.space	48
- 874      00000000 
- 874      00000000 
- 874      00000000 
- 874      00000000 
- 875              		.section	.bss.hspi1,"aw",%nobits
- 876              		.align	2
- 877              		.set	.LANCHOR2,. + 0
- 880              	hspi1:
- 881 0000 00000000 		.space	88
- 881      00000000 
- 881      00000000 
- 881      00000000 
- 881      00000000 
- 882              		.section	.bss.huart1,"aw",%nobits
- 883              		.align	2
- 884              		.set	.LANCHOR3,. + 0
- 887              	huart1:
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 30
+ 849              	.LC0:
+ 850 0000 52464944 		.ascii	"RFID_Task\000"
+ 850      5F546173 
+ 850      6B00
+ 851              		.global	RFID_TaskHandle
+ 852              		.global	UART_Task_attributes
+ 853 000a 0000     		.align	2
+ 854              	.LC1:
+ 855 000c 55415254 		.ascii	"UART_Task\000"
+ 855      5F546173 
+ 855      6B00
+ 856              		.global	UART_TaskHandle
+ 857              		.global	EScale_Task_attributes
+ 858 0016 0000     		.align	2
+ 859              	.LC2:
+ 860 0018 45536361 		.ascii	"EScale_Task\000"
+ 860      6C655F54 
+ 860      61736B00 
+ 861              		.global	EScale_TaskHandle
+ 862              		.global	defaultTask_attributes
+ 863              		.align	2
+ 864              	.LC3:
+ 865 0024 64656661 		.ascii	"defaultTask\000"
+ 865      756C7454 
+ 865      61736B00 
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 30
 
 
- 888 0000 00000000 		.space	68
- 888      00000000 
- 888      00000000 
- 888      00000000 
- 888      00000000 
- 889              		.section	.bss.u16_ADCVal,"aw",%nobits
- 890              		.align	1
- 891              		.set	.LANCHOR1,. + 0
- 894              	u16_ADCVal:
- 895 0000 0000     		.space	2
- 896              		.section	.rodata.EScale_Task_attributes,"a"
- 897              		.align	2
- 898              		.set	.LANCHOR6,. + 0
- 901              	EScale_Task_attributes:
- 902 0000 18000000 		.word	.LC2
- 903 0004 00000000 		.space	16
- 903      00000000 
- 903      00000000 
- 903      00000000 
- 904 0014 00020000 		.word	512
- 905 0018 08000000 		.word	8
- 906 001c 00000000 		.space	8
- 906      00000000 
- 907              		.section	.rodata.RFID_Task_attributes,"a"
- 908              		.align	2
- 909              		.set	.LANCHOR10,. + 0
- 912              	RFID_Task_attributes:
- 913 0000 00000000 		.word	.LC0
- 914 0004 00000000 		.space	16
- 914      00000000 
- 914      00000000 
- 914      00000000 
- 915 0014 00020000 		.word	512
- 916 0018 08000000 		.word	8
- 917 001c 00000000 		.space	8
- 917      00000000 
- 918              		.section	.rodata.UART_Task_attributes,"a"
- 919              		.align	2
- 920              		.set	.LANCHOR8,. + 0
- 923              	UART_Task_attributes:
- 924 0000 0C000000 		.word	.LC1
- 925 0004 00000000 		.space	16
- 925      00000000 
- 925      00000000 
- 925      00000000 
- 926 0014 00020000 		.word	512
- 927 0018 08000000 		.word	8
- 928 001c 00000000 		.space	8
- 928      00000000 
- 929              		.section	.rodata.defaultTask_attributes,"a"
- 930              		.align	2
- 931              		.set	.LANCHOR4,. + 0
- 934              	defaultTask_attributes:
- 935 0000 24000000 		.word	.LC3
- 936 0004 00000000 		.space	16
- 936      00000000 
- 936      00000000 
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 31
+ 866              		.global	defaultTaskHandle
+ 867              		.global	huart1
+ 868              		.global	hspi1
+ 869              		.global	hadc1
+ 870              		.section	.bss.ESCALE_KEY,"aw",%nobits
+ 871              		.align	2
+ 872              		.set	.LANCHOR0,. + 0
+ 875              	ESCALE_KEY:
+ 876 0000 00000000 		.space	4
+ 877              		.section	.bss.EScale_TaskHandle,"aw",%nobits
+ 878              		.align	2
+ 879              		.set	.LANCHOR8,. + 0
+ 882              	EScale_TaskHandle:
+ 883 0000 00000000 		.space	4
+ 884              		.section	.bss.RFID_KEY,"aw",%nobits
+ 885              		.align	2
+ 888              	RFID_KEY:
+ 889 0000 00000000 		.space	4
+ 890              		.section	.bss.RFID_TaskHandle,"aw",%nobits
+ 891              		.align	2
+ 892              		.set	.LANCHOR12,. + 0
+ 895              	RFID_TaskHandle:
+ 896 0000 00000000 		.space	4
+ 897              		.section	.bss.UART_KEY,"aw",%nobits
+ 898              		.align	2
+ 901              	UART_KEY:
+ 902 0000 00000000 		.space	4
+ 903              		.section	.bss.UART_TaskHandle,"aw",%nobits
+ 904              		.align	2
+ 905              		.set	.LANCHOR10,. + 0
+ 908              	UART_TaskHandle:
+ 909 0000 00000000 		.space	4
+ 910              		.section	.bss.defaultTaskHandle,"aw",%nobits
+ 911              		.align	2
+ 912              		.set	.LANCHOR6,. + 0
+ 915              	defaultTaskHandle:
+ 916 0000 00000000 		.space	4
+ 917              		.section	.bss.hadc1,"aw",%nobits
+ 918              		.align	2
+ 919              		.set	.LANCHOR1,. + 0
+ 922              	hadc1:
+ 923 0000 00000000 		.space	48
+ 923      00000000 
+ 923      00000000 
+ 923      00000000 
+ 923      00000000 
+ 924              		.section	.bss.hspi1,"aw",%nobits
+ 925              		.align	2
+ 926              		.set	.LANCHOR3,. + 0
+ 929              	hspi1:
+ 930 0000 00000000 		.space	88
+ 930      00000000 
+ 930      00000000 
+ 930      00000000 
+ 930      00000000 
+ 931              		.section	.bss.huart1,"aw",%nobits
+ 932              		.align	2
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 31
 
 
- 936      00000000 
- 937 0014 00020000 		.word	512
- 938 0018 18000000 		.word	24
- 939 001c 00000000 		.space	8
- 939      00000000 
- 940              		.text
- 941              	.Letext0:
- 942              		.file 3 "c:\\gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
- 943              		.file 4 "c:\\gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
- 944              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 945              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
- 946              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 947              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 948              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
- 949              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 950              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
- 951              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
- 952              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 953              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 954              		.file 15 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
- 955              		.file 16 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 956              		.file 17 "<built-in>"
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 32
+ 933              		.set	.LANCHOR4,. + 0
+ 936              	huart1:
+ 937 0000 00000000 		.space	68
+ 937      00000000 
+ 937      00000000 
+ 937      00000000 
+ 937      00000000 
+ 938              		.section	.bss.u16_ADCVal,"aw",%nobits
+ 939              		.align	1
+ 940              		.set	.LANCHOR2,. + 0
+ 943              	u16_ADCVal:
+ 944 0000 0000     		.space	2
+ 945              		.section	.rodata.EScale_Task_attributes,"a"
+ 946              		.align	2
+ 947              		.set	.LANCHOR7,. + 0
+ 950              	EScale_Task_attributes:
+ 951 0000 18000000 		.word	.LC2
+ 952 0004 00000000 		.space	16
+ 952      00000000 
+ 952      00000000 
+ 952      00000000 
+ 953 0014 00020000 		.word	512
+ 954 0018 08000000 		.word	8
+ 955 001c 00000000 		.space	8
+ 955      00000000 
+ 956              		.section	.rodata.RFID_Task_attributes,"a"
+ 957              		.align	2
+ 958              		.set	.LANCHOR11,. + 0
+ 961              	RFID_Task_attributes:
+ 962 0000 00000000 		.word	.LC0
+ 963 0004 00000000 		.space	16
+ 963      00000000 
+ 963      00000000 
+ 963      00000000 
+ 964 0014 00020000 		.word	512
+ 965 0018 08000000 		.word	8
+ 966 001c 00000000 		.space	8
+ 966      00000000 
+ 967              		.section	.rodata.UART_Task_attributes,"a"
+ 968              		.align	2
+ 969              		.set	.LANCHOR9,. + 0
+ 972              	UART_Task_attributes:
+ 973 0000 0C000000 		.word	.LC1
+ 974 0004 00000000 		.space	16
+ 974      00000000 
+ 974      00000000 
+ 974      00000000 
+ 975 0014 00020000 		.word	512
+ 976 0018 08000000 		.word	8
+ 977 001c 00000000 		.space	8
+ 977      00000000 
+ 978              		.section	.rodata.defaultTask_attributes,"a"
+ 979              		.align	2
+ 980              		.set	.LANCHOR5,. + 0
+ 983              	defaultTask_attributes:
+ 984 0000 24000000 		.word	.LC3
+ 985 0004 00000000 		.space	16
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 32
+
+
+ 985      00000000 
+ 985      00000000 
+ 985      00000000 
+ 986 0014 00020000 		.word	512
+ 987 0018 18000000 		.word	24
+ 988 001c 00000000 		.space	8
+ 988      00000000 
+ 989              		.text
+ 990              	.Letext0:
+ 991              		.file 3 "c:\\gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\include\\machine\\_
+ 992              		.file 4 "c:\\gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi\\arm-none-eabi\\include\\sys\\_stdi
+ 993              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 994              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 995              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 996              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 997              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 998              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 999              		.file 11 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
+ 1000              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
+ 1001              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 1002              		.file 14 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 1003              		.file 15 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 1004              		.file 16 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 1005              		.file 17 "<built-in>"
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:18     .text.MX_GPIO_Init:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:23     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:59     .text.MX_GPIO_Init:0000001c $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:64     .text.StartDefaultTask:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:70     .text.StartDefaultTask:00000000 StartDefaultTask
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:97     .text.StartUART_Task:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:103    .text.StartUART_Task:00000000 StartUART_Task
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:130    .text.StartRFID_Task:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:136    .text.StartRFID_Task:00000000 StartRFID_Task
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:163    .text.StartESacle_Task:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:169    .text.StartESacle_Task:00000000 StartESacle_Task
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:204    .text.HAL_ADC_ConvCpltCallback:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:210    .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:251    .text.HAL_ADC_ConvCpltCallback:00000018 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:258    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:264    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:298    .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:303    .text.Error_Handler:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:309    .text.Error_Handler:00000000 Error_Handler
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:341    .text.MX_ADC1_Init:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:346    .text.MX_ADC1_Init:00000000 MX_ADC1_Init
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:435    .text.MX_ADC1_Init:0000004c $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:441    .text.MX_SPI1_Init:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:446    .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:514    .text.MX_SPI1_Init:00000038 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:520    .text.MX_USART1_UART_Init:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:525    .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:580    .text.MX_USART1_UART_Init:0000002c $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:586    .text.SystemClock_Config:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:592    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:710    .text.main:00000000 $t
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:716    .text.main:00000000 main
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:800    .text.main:0000005c $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:894    .bss.u16_ADCVal:00000000 u16_ADCVal
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:912    .rodata.RFID_Task_attributes:00000000 RFID_Task_attributes
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:818    .rodata.str1.4:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:852    .bss.RFID_TaskHandle:00000000 RFID_TaskHandle
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:923    .rodata.UART_Task_attributes:00000000 UART_Task_attributes
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:859    .bss.UART_TaskHandle:00000000 UART_TaskHandle
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:901    .rodata.EScale_Task_attributes:00000000 EScale_Task_attributes
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:845    .bss.EScale_TaskHandle:00000000 EScale_TaskHandle
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:934    .rodata.defaultTask_attributes:00000000 defaultTask_attributes
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:866    .bss.defaultTaskHandle:00000000 defaultTaskHandle
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:887    .bss.huart1:00000000 huart1
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:880    .bss.hspi1:00000000 hspi1
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:873    .bss.hadc1:00000000 hadc1
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:841    .bss.EScale_TaskHandle:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:848    .bss.RFID_TaskHandle:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:855    .bss.UART_TaskHandle:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:862    .bss.defaultTaskHandle:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:869    .bss.hadc1:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:876    .bss.hspi1:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:883    .bss.huart1:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:890    .bss.u16_ADCVal:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:897    .rodata.EScale_Task_attributes:00000000 $d
-ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s 			page 33
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:18     .text.MX_GPIO_Init:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:23     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:59     .text.MX_GPIO_Init:0000001c $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:64     .text.StartDefaultTask:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:70     .text.StartDefaultTask:00000000 StartDefaultTask
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:97     .text.StartUART_Task:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:103    .text.StartUART_Task:00000000 StartUART_Task
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:130    .text.StartRFID_Task:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:136    .text.StartRFID_Task:00000000 StartRFID_Task
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:163    .text.StartESacle_Task:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:169    .text.StartESacle_Task:00000000 StartESacle_Task
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:225    .text.StartESacle_Task:00000034 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:231    .text.HAL_ADC_ConvCpltCallback:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:237    .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:278    .text.HAL_ADC_ConvCpltCallback:00000018 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:285    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:291    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:325    .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:330    .text.Error_Handler:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:336    .text.Error_Handler:00000000 Error_Handler
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:368    .text.MX_ADC1_Init:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:373    .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:462    .text.MX_ADC1_Init:0000004c $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:468    .text.MX_SPI1_Init:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:473    .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:541    .text.MX_SPI1_Init:00000038 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:547    .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:552    .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:607    .text.MX_USART1_UART_Init:0000002c $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:613    .text.SystemClock_Config:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:619    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:737    .text.main:00000000 $t
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:743    .text.main:00000000 main
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:827    .text.main:0000005c $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:888    .bss.RFID_KEY:00000000 RFID_KEY
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:901    .bss.UART_KEY:00000000 UART_KEY
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:875    .bss.ESCALE_KEY:00000000 ESCALE_KEY
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:943    .bss.u16_ADCVal:00000000 u16_ADCVal
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:961    .rodata.RFID_Task_attributes:00000000 RFID_Task_attributes
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:848    .rodata.str1.4:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:895    .bss.RFID_TaskHandle:00000000 RFID_TaskHandle
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:972    .rodata.UART_Task_attributes:00000000 UART_Task_attributes
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:908    .bss.UART_TaskHandle:00000000 UART_TaskHandle
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:950    .rodata.EScale_Task_attributes:00000000 EScale_Task_attributes
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:882    .bss.EScale_TaskHandle:00000000 EScale_TaskHandle
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:983    .rodata.defaultTask_attributes:00000000 defaultTask_attributes
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:915    .bss.defaultTaskHandle:00000000 defaultTaskHandle
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:936    .bss.huart1:00000000 huart1
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:929    .bss.hspi1:00000000 hspi1
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:922    .bss.hadc1:00000000 hadc1
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:871    .bss.ESCALE_KEY:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:878    .bss.EScale_TaskHandle:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:885    .bss.RFID_KEY:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:891    .bss.RFID_TaskHandle:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:898    .bss.UART_KEY:00000000 $d
+ARM GAS  C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s 			page 34
 
 
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:908    .rodata.RFID_Task_attributes:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:919    .rodata.UART_Task_attributes:00000000 $d
-C:\Users\DELLPR~1\AppData\Local\Temp\cc7TUntH.s:930    .rodata.defaultTask_attributes:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:904    .bss.UART_TaskHandle:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:911    .bss.defaultTaskHandle:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:918    .bss.hadc1:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:925    .bss.hspi1:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:932    .bss.huart1:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:939    .bss.u16_ADCVal:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:946    .rodata.EScale_Task_attributes:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:957    .rodata.RFID_Task_attributes:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:968    .rodata.UART_Task_attributes:00000000 $d
+C:\Users\DELLPR~1\AppData\Local\Temp\ccL7oCpR.s:979    .rodata.defaultTask_attributes:00000000 $d
 
 UNDEFINED SYMBOLS
 osDelay
 osKernelGetTickCount
+osSemaphoreAcquire
+HAL_ADC_Start_IT
+HAL_ADC_Stop_IT
+osSemaphoreRelease
+osDelayUntil
 HAL_ADC_GetValue
 HAL_IncTick
 HAL_ADC_Init
