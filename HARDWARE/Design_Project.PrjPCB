@@ -154,7 +154,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=HNWLDQDS
+DocumentUniqueId=MEJBLYVM
 
 [Configuration1]
 Name=Sources
@@ -281,7 +281,7 @@ PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate
 [OutputGroup3]
 Name=Documentation Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=Virtual Printer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Composite
 OutputName1=Composite Drawing
@@ -1205,58 +1205,6 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=
-ParameterUpdate0=1
-ParameterName1=Availability
-ParameterUpdate1=1
-ParameterName2=Comment
-ParameterUpdate2=1
-ParameterName3=Component Kind
-ParameterUpdate3=1
-ParameterName4=ComponentLink1 Description
-ParameterUpdate4=1
-ParameterName5=ComponentLink1URL
-ParameterUpdate5=1
-ParameterName6=ComponentLink2 Description
-ParameterUpdate6=1
-ParameterName7=ComponentLink2URL
-ParameterUpdate7=1
-ParameterName8=Created by
-ParameterUpdate8=1
-ParameterName9=Created Date
-ParameterUpdate9=1
-ParameterName10=Description
-ParameterUpdate10=1
-ParameterName11=LatestRevisionDate
-ParameterUpdate11=1
-ParameterName12=LatestRevisionNote
-ParameterUpdate12=1
-ParameterName13=Library Reference
-ParameterUpdate13=1
-ParameterName14=Manufacturer
-ParameterUpdate14=1
-ParameterName15=MF
-ParameterUpdate15=1
-ParameterName16=MP
-ParameterUpdate16=1
-ParameterName17=Name
-ParameterUpdate17=1
-ParameterName18=NoPins
-ParameterUpdate18=1
-ParameterName19=Package
-ParameterUpdate19=1
-ParameterName20=PackageReference
-ParameterUpdate20=1
-ParameterName21=partNo
-ParameterUpdate21=1
-ParameterName22=Price
-ParameterUpdate22=1
-ParameterName23=Published
-ParameterUpdate23=1
-ParameterName24=Publisher
-ParameterUpdate24=1
-ParameterName25=Value
-ParameterUpdate25=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
@@ -1477,4 +1425,7 @@ ComparisonOptions2=Kind=Component Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Co
 ComparisonOptions3=Kind=Rule|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
 ComparisonOptions4=Kind=Differential Pair|MinPercent=50|MinMatch=1|ShowMatch=0|Confirm=0|UseName=0|InclAllRules=0
 ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
+
+[SmartPDF]
+PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
 
