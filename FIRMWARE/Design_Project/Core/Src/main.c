@@ -34,6 +34,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define SIZEOFBUFF 20
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -105,6 +106,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
     u16_ADCVal = HAL_ADC_GetValue(&hadc1);
   }
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -442,10 +444,15 @@ void StartUART_Task(void *argument)
 void StartRFID_Task(void *argument)
 {
   /* USER CODE BEGIN StartRFID_Task */
+  __IO uint32_t tick = osKernelGetTickCount();
+  uint8_t u8_SPI1_TxBuffer[SIZEOFBUFF] = "MASTER SEND";
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+    HAL_SPI_Transmit(&hspi1, u8_SPI1_TxBuffer, SIZEOFBUFF, 100);
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+    osDelayUntil(tick);
   }
   /* USER CODE END StartRFID_Task */
 }
