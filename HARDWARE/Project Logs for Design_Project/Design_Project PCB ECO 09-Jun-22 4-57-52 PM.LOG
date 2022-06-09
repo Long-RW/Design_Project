@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GND Pin=P2-1
+Removed Pin From Net: NetName=VIN- Pin=P2-3
+Added Pin To Net: NetName=VIN- Pin=P2-1
+Added Pin To Net: NetName=GND Pin=P2-3
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales
