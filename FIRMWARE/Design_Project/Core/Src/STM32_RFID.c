@@ -57,9 +57,7 @@ void ClearBitMask(uint8_t reg, uint8_t mask)
     temp = RFID_read(reg);
     RFID_write(reg, temp & ~mask);
 }
-void RFID_AntennaOn(void)
+void RFID_Init(void)
 {
-    uint8_t i;
-    i = RFID_read(TxControlReg);
-    if(!(i & Div))
+    
 }
