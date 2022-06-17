@@ -1,0 +1,23 @@
+Function:
+1. AntennaOn
+	Setbit TxControlReg, 0x03:0000 0011 => Set 2 last bit 
+2. AntennaOff
+	Clearbit TxControlReg,0x03 => Clear 2 last bit
+3. MFRC522_Reset
+	Write Registor: CommandReg 
+	Value: PCD_RESETPHASE = 0x0F: 0000 1111 => Reset
+4. MFRC522_Init
+	Set CS PIN, RST PIN, call MFRC522_Reset.
+	Registor				Write Value
+	TmodeReg				0x8D: 1000 1101
+	TPrescalerReg			0x3E: 0011 1110
+	TReloadRegL				0x1E: 0001 1110
+	TReloadRegH				0x00: 0000 0000
+	TxAutoReg				0x40: 0100 0000
+	ModeReg					0x3D: 0011 1101
+	Call AntennaOn Function
+5. MFRC522_ToCard
+   		
+
+
+	
