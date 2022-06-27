@@ -38,24 +38,26 @@
 
 
 //////////////////////////////////////
-#ifdef __GNUC__
-/* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
-set to 'Yes') calls __io_putchar() */
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
-/////////////////////////////////////
-
-PUTCHAR_PROTOTYPE
+struct __FILE
 {
-/* Place your implementation of fputc here */
-/* e.g. write a character to the USART */
-	USART_SendData(USART1, (uint8_t) ch);
-/* Loop until the end of transmission */
-	while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
-	{}
+	int handle;
+	/* Whatever you require here. If the only file you are using is */
+	/* standard output using printf() for debugging, no file handling */
+	/* is required. */
+};
+
+FILE __stdout;
+
+int fputc(int ch, FILE *f)
+{
+	USART_SendData(USART1, (uint8_t)ch);
 	return ch;
+}
+
+int ferror(FILE *f)
+{
+	/* Your implementation of ferror(). */
+	return 0;
 }
 
 uchar i,tmp;
