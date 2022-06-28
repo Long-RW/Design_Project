@@ -477,10 +477,7 @@ void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState Pin
     GPIOx->BSRR = (uint32_t)GPIO_Pin << 16u;
   }
 }
-void HAL_GPIO_WritePort(GPIO_TypeDef* GPIOx, uint16_t portValue)
-{
-    GPIOx->ODR = portValue;
-}
+
 /**
   * @brief  Toggles the specified GPIO pin
   * @param  GPIOx: where x can be (A..G depending on device used) to select the GPIO peripheral
