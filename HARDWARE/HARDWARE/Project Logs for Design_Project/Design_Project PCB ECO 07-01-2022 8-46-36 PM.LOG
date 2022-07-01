@@ -1,0 +1,38 @@
+Added Component: Designator=JP1(JP8)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "JP7"; VariantName = "[No Variations]"
+Added Component: Designator=U1(DIP40 - duplicate)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=JP1-6
+Added Pin To Net: NetName=3.3V Pin=JP1-7
+Added Pin To Net: NetName=3.3V Pin=JP1-8
+Added Pin To Net: NetName=NetP1_4 Pin=U1-6
+Added Pin To Net: NetName=NetP1_3 Pin=U1-7
+Added Pin To Net: NetName=NetLED1_2 Pin=U1-16
+Added Pin To Net: NetName=NetLED2_2 Pin=U1-17
+Added Pin To Net: NetName=GND Pin=U1-19
+Added Pin To Net: NetName=3.3V Pin=U1-20
+Added Pin To Net: NetName=NetLS1_N Pin=U1-26
+Added Pin To Net: NetName=NetJP1_1 Pin=JP1-1
+Added Pin To Net: NetName=NetJP1_1 Pin=U1-33
+Added Net: Name=NetJP1_1
+Added Pin To Net: NetName=NetJP1_2 Pin=JP1-2
+Added Pin To Net: NetName=NetJP1_2 Pin=U1-30
+Added Net: Name=NetJP1_2
+Added Pin To Net: NetName=NetJP1_3 Pin=JP1-3
+Added Pin To Net: NetName=NetJP1_3 Pin=U1-31
+Added Net: Name=NetJP1_3
+Added Pin To Net: NetName=NetJP1_4 Pin=JP1-4
+Added Pin To Net: NetName=NetJP1_4 Pin=U1-32
+Added Net: Name=NetJP1_4
+Added Pin To Net: NetName=NetU1_25 Pin=U1-25
+Added Pin To Net: NetName=NetU1_25 Pin=U3-10
+Added Pin To Net: NetName=NetU1_25 Pin=U3-11
+Added Net: Name=NetU1_25
+Added Member To Class: ClassName=03_RFID Member=Component JP1 JP8 PIN
+Added Member To Class: ClassName=01_MCU Member=Component U1 BluePill
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

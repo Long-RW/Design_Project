@@ -1,0 +1,15 @@
+Added Component: Designator=VOL1(VOL_SMD)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "Volume 50k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetU3_8 Pin=U3-8
+Added Pin To Net: NetName=NetU3_8 Pin=VOL1-3
+Added Net: Name=NetU3_8
+Added Pin To Net: NetName=NetU3_9 Pin=U3-9
+Added Pin To Net: NetName=NetU3_9 Pin=VOL1-2
+Added Net: Name=NetU3_9
+Added Member To Class: ClassName=05_ElectronicScales Member=Component VOL1 50K
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

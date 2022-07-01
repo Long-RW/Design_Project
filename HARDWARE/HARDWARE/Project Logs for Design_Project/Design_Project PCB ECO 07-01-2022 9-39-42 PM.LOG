@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=NetLS1_N Pin=LS1-N
+Removed Pin From Net: NetName=3.3V Pin=LS1-P
+Added Component: Designator=LS1(XDCR_AI-1027-TWT-3V-R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/AI-1027-TWT-3V-R/PUI%20Audio,%20Inc./view-part/7376009/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "PUI Audio, Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "AI-1027-TWT-3V-R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/AI-1027-TWT-3V-R/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/AI-1027-TWT-3V-R/PUI%20Audio,%20Inc./view-part/7376009/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetLS1_N Pin=LS1-N
+Added Pin To Net: NetName=3.3V Pin=LS1-P
+Added Pin To Net: NetName=GND Pin=R3-1
+Added Member To Class: ClassName=01_MCU Member=Component LS1 AI-1027-TWT-3V-R
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

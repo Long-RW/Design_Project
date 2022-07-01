@@ -1,0 +1,9 @@
+Change Net Name : Old Net Name=NetJP1_1 New Net Name=CS
+Change Net Name : Old Net Name=NetJP1_2 New Net Name=SCK
+Change Net Name : Old Net Name=NetJP1_3 New Net Name=MOSI
+Change Net Name : Old Net Name=NetJP1_4 New Net Name=MISO
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

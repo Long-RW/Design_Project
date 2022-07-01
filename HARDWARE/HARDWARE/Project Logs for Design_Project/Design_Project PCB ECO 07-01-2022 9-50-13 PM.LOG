@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=CS Pin=JP1-1
+Removed Pin From Net: NetName=MOSI Pin=JP1-3
+Removed Pin From Net: NetName=MISO Pin=JP1-4
+Removed Pin From Net: NetName=GND Pin=JP1-6
+Added Pin To Net: NetName=GND Pin=JP1-1
+Added Pin To Net: NetName=MISO Pin=JP1-3
+Added Pin To Net: NetName=MOSI Pin=JP1-4
+Added Pin To Net: NetName=CS Pin=JP1-5
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

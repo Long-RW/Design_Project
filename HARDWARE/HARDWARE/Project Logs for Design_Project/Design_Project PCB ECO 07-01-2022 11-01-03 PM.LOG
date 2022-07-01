@@ -1,0 +1,11 @@
+Added Component: Designator=VR1(VR)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "VR 10K"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetU3_9 Pin=VR1-2
+Added Pin To Net: NetName=NetU3_8 Pin=VR1-3
+Added Member To Class: ClassName=05_ElectronicScales Member=Component VR1 10K
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales

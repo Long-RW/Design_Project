@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=NetJP1_3 Pin=U1-31
+Removed Pin From Net: NetName=NetJP1_4 Pin=U1-32
+Added Pin To Net: NetName=NetJP1_4 Pin=U1-31
+Added Pin To Net: NetName=NetJP1_3 Pin=U1-32
+Added Member To Class: ClassName=01_MCU Member=Component LS1 AI-1027-TWT-3V-R
+Added Room: Name=01_MCU
+Added Room: Name=02_PowerSupply
+Added Room: Name=03_RFID
+Added Room: Name=04_ComputerConnect
+Added Room: Name=05_ElectronicScales
