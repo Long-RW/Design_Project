@@ -22,7 +22,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdio.h"
+#include "delay.h"
+#include "STM32_RFID.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +39,15 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+//
 
+// Delay function:
+#define	Precise_Delay(x) {\
+	uint32_t x1 = x * 72;\
+	DWT->CYCCNT = 0;\
+	while (DWT->CYCCNT < x1);\
+}
+////
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -51,7 +62,6 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,7 +78,55 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+struct __FILE
+{
+	int handle;
+	/* Whatever you require here. If the only file you are using is */
+	/* standard output using printf() for debugging, no file handling */
+	/* is required. */
+};
 
+FILE __stdout;
+
+int fputc(int ch, FILE *f)
+{
+	HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+	return ch;
+}
+
+int ferror(FILE *f)
+{
+	/* Your implementation of ferror(). */
+	return 0;
+}
+/**
+  * @brief  MFRC522_write
+  * @note   This function WRITE a byte into MFRC522 register 
+  * @param  reg is MFRC522 regsister, data is the byte need to be written
+  * @retval None
+  *
+  */
+u_char CheckCard(u_char checkCard, u_char serNum[], u_char key_Card[])
+{
+	u_char count = 0;
+	for(uint8_t i = 0; i < 5; i++)
+	{
+		if(serNum[i] != key_Card[i])
+		{
+			count++;
+		}
+	}
+	if (count == 0)
+	{
+		checkCard = 1;
+	}
+	else
+	{
+		checkCard = 0;
+	}
+	
+	return checkCard;
+}
 /* USER CODE END 0 */
 
 /**
@@ -78,7 +136,19 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	u_char i,tmp;
+	u_char RFID_status;
+	u_char str[MAX_LENGTH]; // Max_LEN = 16
 
+	u_char serNum[5];
+	uint8_t key;
+	u_char checkCard1, checkCard2;
+
+	u_char Key_Card1[5]  = {0x6C, 0x5C, 0x4D, 0x49, 0x34};
+	u_char Key_Card2[5] = {0x63, 0xAC, 0xB1, 0x18, 0x66};
+	
+	
+	double weight = 1325;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -102,9 +172,15 @@ int main(void)
   MX_USART1_UART_Init();
   MX_SPI1_Init();
   MX_ADC1_Init();
-  MX_IWDG_Init();
+  //MX_IWDG_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+	//HAL_IWDG_Init(&hiwdg);
+	while(DWT_Delay_Init());
+	MFRC522_Init();
+	printf("Welcome to RFID...\r\n");
+ 	//RFID_status = MFRC522_Request(PICC_REQIDL, str);
+  // a private key to scramble data writing/reading to/from RFID card:
 
   /* USER CODE END 2 */
 
@@ -115,7 +191,53 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		//RFID Task
+		
+		printf("Waiting your Card ! \r \n");
+		RFID_status = 0;
+		//printf("Waiting for you Card .. \r \n");
+		do
+		{
+			RFID_status = MFRC522_Request(PICC_REQIDL, str);
+		} while(RFID_status != MI_OK); 
+		HAL_Delay(600);
+		
+		if (RFID_status == MI_OK)
+		{
+			printf("Find out a card: %x, %x\r\n",str[0],str[1]);
+		}
+		RFID_status = MFRC522_Anticoll(str);
+		memcpy(serNum, str, 5);
+		if (RFID_status == MI_OK)
+		{
+			printf("%2x %2x %2x %2x %2x,%2.0f",serNum[0], serNum[1], serNum[2], serNum[3],serNum[4], weight);
+			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+			HAL_Delay(300);
+			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+			checkCard1 = CheckCard(checkCard1, serNum, Key_Card1);
+			checkCard2 = CheckCard(checkCard2, serNum, Key_Card2);
+		}
+		
+		//Chong va cham the, tra ve 5 byte ma the
+
+		if(checkCard1 || checkCard2 == 1)
+		{	
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+			HAL_Delay(500);
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+			
+			printf("The Card's number is Ok!\r\n");
+		}
+		else if(checkCard1 || checkCard2 == 0)
+		{	
+			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+			HAL_Delay(500);
+			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+			printf("The Card's unavailable!\r\n");
+		}
+		//HAL_IWDG_Refresh(&hiwdg); 			//Refresh Watchdog timer
   }
+	
   /* USER CODE END 3 */
 }
 
@@ -224,7 +346,7 @@ static void MX_IWDG_Init(void)
   /* USER CODE END IWDG_Init 1 */
   hiwdg.Instance = IWDG;
   hiwdg.Init.Prescaler = IWDG_PRESCALER_256;
-  hiwdg.Init.Reload = 624;
+  hiwdg.Init.Reload = 312;
   if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
   {
     Error_Handler();
@@ -368,7 +490,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, CS_Pin|LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : BUZZER_Pin */
   GPIO_InitStruct.Pin = BUZZER_Pin;
