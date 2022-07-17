@@ -158,7 +158,7 @@ void MFRC522_Init(void)
 */
 u_char MFRC522_ToCard(u_char command, u_char *sendData, u_char sendLength, 
                                     u_char *backData, uint *backLength)
-{
+{	
   u_char status = MI_ERR;
   u_char irqEn = 0x00;
   u_char waitIRq = 0x00;
@@ -185,7 +185,6 @@ u_char MFRC522_ToCard(u_char command, u_char *sendData, u_char sendLength,
   SetBitMask(FIFOLevelReg, 0x80);       //FlushBuffer = 1, Initial FIFO Buffer
 
   MFRC522_write(CommandReg, PCD_IDLE);     //No action; cancel the current command
-
   //Write Data into FIFO Data Register
   for(i = 0; i < sendLength; i++)
   {
@@ -201,29 +200,30 @@ u_char MFRC522_ToCard(u_char command, u_char *sendData, u_char sendLength,
 
   //Waiting for Transmision completed
 	i = 2000;
-	while((i!=0) && (!(n&0x01)) && (!(n&waitIRq)))
+	HAL_Delay(100);
+	do
   {
-    n = MFRC522_read(ComIEnReg);
+		n = MFRC522_read(ComIEnReg);		
     i--;
-  }
+  }while((i!=0) && (!(n&0x01)) && (!(n&waitIRq)));
+	HAL_Delay(100);
 	HAL_Delay(4);  //wait until i = 0 and ComIEnReg = 0x31 = 0011 0001 => RxIEn, IdleIEn and TimerIEn bits set
   ClearBitMask(BitFramingReg, 0x80);      //StartSend = 0
-  
   if(i != 0)
   {
     if(!(MFRC522_read(ErrorReg) & 0x1B))    //Bufferovfl Collerr CRCErr ProtocolErr
     {
       status = MI_OK;
 
-      if(n & irqEn & 0x01)
-      {
-        status = MI_NOTAGERR;
-      }
+//      if(n & irqEn & 0x01)
+//      {
+//        status = MI_NOTAGERR;
+//      }
       if(command == PCD_TRANCEIVE)
       {
         n = MFRC522_read(FIFOLevelReg);
         lastBits = MFRC522_read(ControlReg) & 0x07;
-
+				//printf("lastBits = %x \n",lastBits);
         if(lastBits)
         {
           *backLength = (n - 1) * 8 + lastBits;
@@ -276,17 +276,17 @@ u_char MFRC522_Request(u_char reqMode, u_char* TagType)
 {
   u_char status;
   uint backBits;                 //Data bits Received
-
+	u_char temp;
   MFRC522_write(BitFramingReg, 0x07);   //TxLastBits = BitFramingReg[2..0]
-  
-  TagType[0] = reqMode;
-  status = MFRC522_ToCard(PCD_TRANCEIVE, TagType, 1, TagType, &backBits);
-
-  if((status != MI_OK) || (backBits != 0x10))
-  {
-    status = MI_ERR;
+  TagType[0] = reqMode;  
+	status = MFRC522_ToCard(PCD_TRANCEIVE, TagType, 1, TagType, &backBits);
+	//printf("status is : %x \n",status);
+	//printf("backbits is : %x \n",backBits);
+  if((status != MI_OK) || (backBits != 0x10) )
+  {	
+			status = MI_ERR;
   }
-
+	//printf("status is : %x \n",status);
   return status;
 }
 

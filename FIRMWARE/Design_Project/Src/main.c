@@ -57,11 +57,10 @@ IWDG_HandleTypeDef hiwdg;
 
 SPI_HandleTypeDef hspi1;
 
-TIM_HandleTypeDef htim2;
-
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+u_char checkCard_Flag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -71,7 +70,6 @@ static void MX_USART1_UART_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_IWDG_Init(void);
-static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -106,26 +104,45 @@ int ferror(FILE *f)
   * @retval None
   *
   */
-u_char CheckCard(u_char checkCard, u_char serNum[], u_char key_Card[])
-{
+void CheckCard(u_char serNum[], u_char key_Card1[], u_char key_Card2[],u_char key_Card3[],u_char key_Card4[])
+{	
 	u_char count = 0;
 	for(uint8_t i = 0; i < 5; i++)
 	{
-		if(serNum[i] != key_Card[i])
+		if(serNum[i] != key_Card1[i])
+		{
+			count++;
+		}
+	}
+	for(uint8_t i = 0; i < 5; i++)
+	{
+		if(serNum[i] != key_Card2[i])
+		{
+			count++;
+		}
+	}
+	for(uint8_t i = 0; i < 5; i++)
+	{
+		if(serNum[i] != key_Card3[i])
+		{
+			count++;
+		}
+	}
+	for(uint8_t i = 0; i < 5; i++)
+	{
+		if(serNum[i] != key_Card4[i])
 		{
 			count++;
 		}
 	}
 	if (count == 0)
 	{
-		checkCard = 1;
+		checkCard_Flag = 0;
 	}
 	else
 	{
-		checkCard = 0;
+		checkCard_Flag = 1;
 	}
-	
-	return checkCard;
 }
 /* USER CODE END 0 */
 
@@ -136,17 +153,16 @@ u_char CheckCard(u_char checkCard, u_char serNum[], u_char key_Card[])
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	u_char i,tmp;
 	u_char RFID_status;
 	u_char str[MAX_LENGTH]; // Max_LEN = 16
 
 	u_char serNum[5];
 	uint8_t key;
-	u_char checkCard1, checkCard2;
 
 	u_char Key_Card1[5]  = {0x6C, 0x5C, 0x4D, 0x49, 0x34};
 	u_char Key_Card2[5] = {0x63, 0xAC, 0xB1, 0x18, 0x66};
-	
+	u_char Key_Card3[5] = {0x1d, 0xe6, 0xaf, 0xc9, 0x9d};
+	u_char Key_Card4[5] = {0x88, 0x04, 0x80, 0x41, 0x4d};
 	
 	double weight = 1325;
   /* USER CODE END 1 */
@@ -173,15 +189,15 @@ int main(void)
   MX_SPI1_Init();
   MX_ADC1_Init();
   //MX_IWDG_Init();
-  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 	//HAL_IWDG_Init(&hiwdg);
 	while(DWT_Delay_Init());
 	MFRC522_Init();
-	printf("Welcome to RFID...\r\n");
+	//printf("Welcome to RFID...\r\n");
  	//RFID_status = MFRC522_Request(PICC_REQIDL, str);
   // a private key to scramble data writing/reading to/from RFID card:
-
+	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -192,20 +208,16 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		//RFID Task
-		
-		printf("Waiting your Card ! \r \n");
 		RFID_status = 0;
 		//printf("Waiting for you Card .. \r \n");
 		do
 		{
 			RFID_status = MFRC522_Request(PICC_REQIDL, str);
-		} while(RFID_status != MI_OK); 
-		HAL_Delay(600);
-		
-		if (RFID_status == MI_OK)
-		{
-			printf("Find out a card: %x, %x\r\n",str[0],str[1]);
-		}
+		} while(RFID_status != MI_OK);
+//		if (RFID_status == MI_OK)
+//		{
+//			printf("Find out a card: %x, %x\r\n",str[0],str[1]);
+//		}
 		RFID_status = MFRC522_Anticoll(str);
 		memcpy(serNum, str, 5);
 		if (RFID_status == MI_OK)
@@ -214,26 +226,24 @@ int main(void)
 			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 			HAL_Delay(300);
 			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-			checkCard1 = CheckCard(checkCard1, serNum, Key_Card1);
-			checkCard2 = CheckCard(checkCard2, serNum, Key_Card2);
+			CheckCard(serNum, Key_Card1, Key_Card2, Key_Card3, Key_Card4);
 		}
-		
 		//Chong va cham the, tra ve 5 byte ma the
 
-		if(checkCard1 || checkCard2 == 1)
+		if(checkCard_Flag)
 		{	
 			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
 			HAL_Delay(500);
 			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
 			
-			printf("The Card's number is Ok!\r\n");
+			//printf("The Card's number is Ok!\r\n");
 		}
-		else if(checkCard1 || checkCard2 == 0)
+		else
 		{	
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
 			HAL_Delay(500);
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-			printf("The Card's unavailable!\r\n");
+			//printf("The Card's unavailable!\r\n");
 		}
 		//HAL_IWDG_Refresh(&hiwdg); 			//Refresh Watchdog timer
   }
@@ -396,51 +406,6 @@ static void MX_SPI1_Init(void)
 }
 
 /**
-  * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 8;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 99;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-
-  /* USER CODE END TIM2_Init 2 */
-
-}
-
-/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -498,16 +463,30 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : BUZZER_Pin */
   GPIO_InitStruct.Pin = BUZZER_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(BUZZER_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : CS_Pin LED_GREEN_Pin LED_RED_Pin */
-  GPIO_InitStruct.Pin = CS_Pin|LED_GREEN_Pin|LED_RED_Pin;
+  /*Configure GPIO pin : CS_Pin */
+  GPIO_InitStruct.Pin = CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(CS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_GREEN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_RED_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
 
 }
 
