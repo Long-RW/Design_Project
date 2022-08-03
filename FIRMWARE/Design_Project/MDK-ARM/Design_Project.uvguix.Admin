@@ -93,8 +93,8 @@
       <flags>2</flags>
       <showCmd>3</showCmd>
       <MinPosition>
-        <xPos>-32000</xPos>
-        <yPos>-32000</yPos>
+        <xPos>-1</xPos>
+        <yPos>-1</yPos>
       </MinPosition>
       <MaxPosition>
         <xPos>-1</xPos>
@@ -3606,9 +3606,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>../Src/main.c</Name>
-        <ColumnNumber>25</ColumnNumber>
-        <TopLine>98</TopLine>
-        <CurrentLine>63</CurrentLine>
+        <ColumnNumber>17</ColumnNumber>
+        <TopLine>230</TopLine>
+        <CurrentLine>230</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -3625,7 +3625,7 @@
       <Doc>
         <Name>..\Src\STM32_RFID.c</Name>
         <ColumnNumber>9</ColumnNumber>
-        <TopLine>203</TopLine>
+        <TopLine>189</TopLine>
         <CurrentLine>219</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
@@ -3634,7 +3634,7 @@
       <Doc>
         <Name>../Inc/STM32_RFID.h</Name>
         <ColumnNumber>27</ColumnNumber>
-        <TopLine>23</TopLine>
+        <TopLine>18</TopLine>
         <CurrentLine>48</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>

@@ -26,6 +26,7 @@
 #include "delay.h"
 #include "STM32_RFID.h"
 #include "string.h"
+#include "hx711.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,7 +52,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
+I2C_HandleTypeDef hi2c2;
 
 IWDG_HandleTypeDef hiwdg;
 
@@ -61,6 +62,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 u_char checkCard_Flag = 0;
+hx711_t loadcell;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,8 +70,8 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_SPI1_Init(void);
-static void MX_ADC1_Init(void);
 static void MX_IWDG_Init(void);
+static void MX_I2C2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -164,7 +166,7 @@ int main(void)
 	u_char Key_Card3[5] = {0x1d, 0xe6, 0xaf, 0xc9, 0x9d};
 	u_char Key_Card4[5] = {0x88, 0x04, 0x80, 0x41, 0x4d};
 	
-	double weight = 1325;
+	double weight;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -173,7 +175,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+	
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -187,17 +189,18 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_SPI1_Init();
-  MX_ADC1_Init();
-  //MX_IWDG_Init();
+  MX_IWDG_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-	//HAL_IWDG_Init(&hiwdg);
+	HAL_IWDG_Init(&hiwdg);
 	while(DWT_Delay_Init());
 	MFRC522_Init();
+	hx711_init(&loadcell, GPIOC, GPIO_PIN_14, GPIOC, GPIO_PIN_15);
+	hx711_coef_set(&loadcell, 354.5);
+	hx711_tare(&loadcell, 100);
 	//printf("Welcome to RFID...\r\n");
  	//RFID_status = MFRC522_Request(PICC_REQIDL, str);
   // a private key to scramble data writing/reading to/from RFID card:
-	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -208,6 +211,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		//RFID Task
+
 		RFID_status = 0;
 		//printf("Waiting for you Card .. \r \n");
 		do
@@ -221,7 +225,9 @@ int main(void)
 		RFID_status = MFRC522_Anticoll(str);
 		memcpy(serNum, str, 5);
 		if (RFID_status == MI_OK)
-		{
+		{	
+			//weight = hx711_weight(&loadcell, 100);
+			weight = 10;
 			printf("%2x %2x %2x %2x %2x,%2.0f",serNum[0], serNum[1], serNum[2], serNum[3],serNum[4], weight);
 			HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 			HAL_Delay(300);
@@ -229,23 +235,22 @@ int main(void)
 			CheckCard(serNum, Key_Card1, Key_Card2, Key_Card3, Key_Card4);
 		}
 		//Chong va cham the, tra ve 5 byte ma the
-
+		HAL_IWDG_Refresh(&hiwdg); 			//Refresh Watchdog timer
 		if(checkCard_Flag)
 		{	
+			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
-			HAL_Delay(500);
-			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
 			
 			//printf("The Card's number is Ok!\r\n");
 		}
 		else
 		{	
+			HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-			HAL_Delay(500);
-			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+
 			//printf("The Card's unavailable!\r\n");
 		}
-		//HAL_IWDG_Refresh(&hiwdg); 			//Refresh Watchdog timer
+		
   }
 	
   /* USER CODE END 3 */
@@ -259,7 +264,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -286,56 +290,39 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-  {
-    Error_Handler();
-  }
 }
 
 /**
-  * @brief ADC1 Initialization Function
+  * @brief I2C2 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_ADC1_Init(void)
+static void MX_I2C2_Init(void)
 {
 
-  /* USER CODE BEGIN ADC1_Init 0 */
+  /* USER CODE BEGIN I2C2_Init 0 */
 
-  /* USER CODE END ADC1_Init 0 */
+  /* USER CODE END I2C2_Init 0 */
 
-  ADC_ChannelConfTypeDef sConfig = {0};
+  /* USER CODE BEGIN I2C2_Init 1 */
 
-  /* USER CODE BEGIN ADC1_Init 1 */
-
-  /* USER CODE END ADC1_Init 1 */
-  /** Common config
-  */
-  hadc1.Instance = ADC1;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  /* USER CODE END I2C2_Init 1 */
+  hi2c2.Instance = I2C2;
+  hi2c2.Init.ClockSpeed = 100000;
+  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c2.Init.OwnAddress1 = 0;
+  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c2.Init.OwnAddress2 = 0;
+  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_0;
-  sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ADC1_Init 2 */
+  /* USER CODE BEGIN I2C2_Init 2 */
 
-  /* USER CODE END ADC1_Init 2 */
+  /* USER CODE END I2C2_Init 2 */
 
 }
 
@@ -459,6 +446,11 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LED_GREEN_Pin|LED_RED_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BUZZER_Pin */
   GPIO_InitStruct.Pin = BUZZER_Pin;
